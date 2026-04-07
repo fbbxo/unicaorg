@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#3b493f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#76927d" media="(prefers-color-scheme: light)">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Serviços | Única Organização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:wght@200;300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="media/icons/favicon.PNG">
+  <link rel="apple-touch-icon" href="media/icons/favicon.PNG">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── SERVIÇOS ───────────────────────────── */
+    #servicos {
+      background: var(--deep);
+      padding: 6rem 8vw 9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #servicos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .serv-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 4.5rem;
+    }
+
+    .serv-header .eyebrow {
+      color: var(--yellow);
+    }
+
+    .serv-header .sec-title {
+      color: var(--white);
+    }
+
+    .serv-header>p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(250, 250, 246, .42);
+      align-self: end;
+    }
+
+    .serv-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255, 255, 255, .04);
+    }
+
+    .serv-card {
+      background: var(--deep);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background .35s, transform .35s;
+      border: 1px solid rgba(118, 146, 125, .1);
+    }
+
+    .serv-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+      transform: scaleX(0);
+      transition: transform .5s ease;
+    }
+
+    .serv-card:hover {
+      background: rgba(118, 146, 125, .12);
+      border-color: rgba(118, 146, 125, .35);
+      transform: translateY(-3px);
+    }
+
+    /* Link no card de ebooks */
+    a.serv-card {
+      display: block;
+    }
+
+    .serv-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .serv-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: rgba(247, 222, 142, .08);
+      line-height: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    .serv-ico {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(247, 222, 142, .25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.4rem;
+      font-size: 1.1rem;
+      transition: border-color .35s, background .35s;
+    }
+
+    .serv-card:hover .serv-ico {
+      border-color: var(--yellow);
+      background: rgba(247, 222, 142, .1);
+    }
+
+    .serv-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: .7rem;
+      line-height: 1.35;
+    }
+
+    .serv-card p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(250, 250, 246, .38);
+    }
+
+    .serv-arr {
+      position: absolute;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      color: var(--yellow);
+      font-size: 1rem;
+      opacity: 0;
+      transform: translate(-6px, 6px);
+      transition: all .3s;
+    }
+
+    .serv-card:hover .serv-arr {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* ── DEPOIMENTOS ────────────────────────── */
+    #depoimentos {
+      padding: 9rem 8vw;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #depoimentos::before {
+      content: '"';
+      position: absolute;
+      right: 5vw;
+      top: 4rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 20rem;
+      font-weight: 700;
+      color: rgba(118, 146, 125, .05);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .dep-head {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+
+    .dep-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding-bottom: .5rem;
+    }
+
+    .dep-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dep-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: var(--white);
+      border: 1px solid rgba(118, 146, 125, .12);
+      padding: 2.4rem;
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .dep-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2rem;
+      right: 2rem;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--sage-lt), transparent);
+    }
+
+    .dep-stars {
+      color: var(--sage);
+      font-size: .85rem;
+      margin-bottom: 1.2rem;
+      letter-spacing: .1em;
+    }
+
+    .dep-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1.8rem;
+    }
+
+    .dep-author {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+    }
+
+    .dep-av {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--yellow);
+      flex-shrink: 0;
+    }
+
+    .dep-name {
+      font-size: .95rem;
+      font-weight: 400;
+      color: var(--deep);
+    }
+
+    .dep-role {
+      font-size: .8rem;
+      font-weight: 300;
+      letter-spacing: .08em;
+      color: var(--muted);
+      margin-top: .15rem;
+    }
+
+    .dep-nav {
+      display: flex;
+      gap: .8rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .dep-nav button {
+      width: 42px;
+      height: 42px;
+      border: 1.5px solid rgba(118, 146, 125, .3);
+      background: transparent;
+      color: var(--sage);
+      font-size: .95rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+
+    .dep-nav button:hover {
+      background: var(--sage);
+      color: var(--cream);
+      border-color: var(--sage);
+    }
+
+    /* ── CTA STRIP ──────────────────────────── */
+    .cta-strip {
+      background: var(--sage);
+      padding: 5rem 8vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      font-weight: 400;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .cta-strip h2 em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    /* ── GRATUITOS ───────────────────────────── */
+    #gratuitos {
+      padding: 6rem 8vw 9rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #gratuitos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .grat-head {
+      text-align: center;
+      margin-bottom: 4.5rem;
+    }
+
+    .grat-head .eyebrow {
+      color: var(--sage);
+    }
+
+    .grat-head .sec-title {
+      color: var(--deep);
+    }
+
+    .grat-head>p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* Grid de materiais */
+    .grat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .grat-card {
+      background: var(--white);
+      border: 1px solid rgba(118, 146, 125, .15);
+      border-radius: 4px;
+      padding: 2.4rem 2rem;
+      text-align: center;
+      transition: all .35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .grat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--sage), transparent);
+      transform: scaleX(0);
+      transition: transform .4s ease;
+    }
+
+    .grat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(59, 73, 63, .12);
+      border-color: rgba(118, 146, 125, .35);
+    }
+
+    .grat-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .grat-ico {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.6rem;
+      font-size: 1.8rem;
+      transition: all .35s ease;
+    }
+
+    .grat-card:hover .grat-ico {
+      background: var(--sage);
+      color: var(--cream);
+      transform: scale(1.1);
+    }
+
+    .grat-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--deep);
+      margin-bottom: .8rem;
+      line-height: 1.35;
+    }
+
+    .grat-card p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+    }
+
+    .grat-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      text-decoration: none;
+      padding: .7rem 1.6rem;
+      border: 1.5px solid var(--sage);
+      border-radius: 2px;
+      transition: all .3s ease;
+    }
+
+    .grat-btn:hover {
+      background: var(--sage);
+      color: var(--cream);
+    }
+
+    .grat-btn::after {
+      content: '↓';
+      font-size: .9rem;
+      transition: transform .3s ease;
+    }
+
+    .grat-btn:hover::after {
+      transform: translateY(3px);
+    }
+
+    /* Badge "Gratuito" */
+    .grat-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--yellow);
+      padding: .25rem .6rem;
+      border-radius: 100px;
+      font-size: .58rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--deep);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 960px) {
+      .serv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .serv-header {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-strip {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .dep-card {
+        flex: 0 0 280px;
+      }
+
+      .grat-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+    @media (prefers-color-scheme: light) {
+      #servicos {
+        background: var(--ivory) !important;
+      }
+
+      #servicos::before {
+        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .06) 0%, transparent 70%) !important;
+      }
+
+      .serv-header .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .serv-header .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .serv-header>p {
+        color: var(--muted) !important;
+      }
+
+      .serv-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .22) !important;
+        box-shadow: 0 2px 16px rgba(59, 73, 63, .07) !important;
+      }
+
+      .serv-card:hover {
+        background: var(--cream) !important;
+        border-color: rgba(118, 146, 125, .45) !important;
+        transform: translateY(-3px);
+      }
+
+      .serv-card h3 {
+        color: var(--deep) !important;
+      }
+
+      .serv-card p {
+        color: var(--muted) !important;
+      }
+
+      .serv-num {
+        color: rgba(118, 146, 125, .16) !important;
+      }
+
+      .serv-ico {
+        border-color: rgba(118, 146, 125, .35) !important;
+      }
+
+      .serv-card:hover .serv-ico {
+        border-color: var(--sage) !important;
+        background: var(--ivory) !important;
+      }
+
+      .serv-arr {
+        color: var(--sage) !important;
+      }
+
+      #depoimentos {
+        background: var(--cream) !important;
+      }
+
+      #depoimentos::before {
+        color: rgba(118, 146, 125, .06) !important;
+      }
+
+      .dep-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .18) !important;
+      }
+
+      .dep-card::before {
+        background: linear-gradient(90deg, transparent, var(--sage-lt), transparent) !important;
+      }
+
+      .dep-card blockquote {
+        color: var(--text) !important;
+      }
+
+      .dep-stars {
+        color: var(--sage) !important;
+      }
+
+      .dep-name {
+        color: var(--deep) !important;
+      }
+
+      .dep-role {
+        color: var(--muted) !important;
+      }
+
+      .dep-av {
+        background: var(--sage) !important;
+        color: var(--yellow) !important;
+      }
+
+      .dep-nav button {
+        color: var(--sage-dk) !important;
+        border-color: rgba(77, 102, 85, .3) !important;
+      }
+
+      .dep-nav button:hover {
+        background: var(--sage) !important;
+        color: white !important;
+      }
+
+      .cta-strip {
+        background: var(--sage-dk) !important;
+      }
+
+      .cta-strip h2 {
+        color: #fff !important;
+      }
+
+      .cta-strip h2 em {
+        color: var(--yellow) !important;
+      }
+
+      /* Gratuitos - tema claro */
+      #gratuitos {
+        background: var(--cream) !important;
+      }
+
+      #gratuitos::before {
+        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .05) 0%, transparent 70%) !important;
+      }
+
+      .grat-head .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .grat-head .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .grat-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .2) !important;
+      }
+
+      .grat-card:hover {
+        border-color: rgba(118, 146, 125, .4) !important;
+      }
+
+      .grat-ico {
+        background: var(--ivory) !important;
+      }
+
+      .grat-card:hover .grat-ico {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+
+      .grat-btn {
+        color: var(--sage-dk) !important;
+        border-color: var(--sage-dk) !important;
+      }
+
+      .grat-btn:hover {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      #servicos {
+        background: var(--ivory) !important;
+      }
+
+      #servicos::before {
+        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .06) 0%, transparent 70%) !important;
+      }
+
+      .serv-header .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .serv-header .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .serv-header>p {
+        color: var(--muted) !important;
+      }
+
+      .serv-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .22) !important;
+        box-shadow: 0 2px 16px rgba(59, 73, 63, .07) !important;
+      }
+
+      .serv-card:hover {
+        background: var(--cream) !important;
+        border-color: rgba(118, 146, 125, .45) !important;
+        transform: translateY(-3px);
+      }
+
+      .serv-card h3 {
+        color: var(--deep) !important;
+      }
+
+      .serv-card p {
+        color: var(--muted) !important;
+      }
+
+      .serv-num {
+        color: rgba(118, 146, 125, .16) !important;
+      }
+
+      .serv-ico {
+        border-color: rgba(118, 146, 125, .35) !important;
+      }
+
+      .serv-card:hover .serv-ico {
+        border-color: var(--sage) !important;
+        background: var(--ivory) !important;
+      }
+
+      .serv-arr {
+        color: var(--sage) !important;
+      }
+
+      #depoimentos {
+        background: var(--cream) !important;
+      }
+
+      #depoimentos::before {
+        color: rgba(118, 146, 125, .06) !important;
+      }
+
+      .dep-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .18) !important;
+      }
+
+      .dep-card::before {
+        background: linear-gradient(90deg, transparent, var(--sage-lt), transparent) !important;
+      }
+
+      .dep-card blockquote {
+        color: var(--text) !important;
+      }
+
+      .dep-stars {
+        color: var(--sage) !important;
+      }
+
+      .dep-name {
+        color: var(--deep) !important;
+      }
+
+      .dep-role {
+        color: var(--muted) !important;
+      }
+
+      .dep-av {
+        background: var(--sage) !important;
+        color: var(--yellow) !important;
+      }
+
+      .dep-nav button {
+        color: var(--sage-dk) !important;
+        border-color: rgba(77, 102, 85, .3) !important;
+      }
+
+      .dep-nav button:hover {
+        background: var(--sage) !important;
+        color: white !important;
+      }
+
+      .cta-strip {
+        background: var(--sage-dk) !important;
+      }
+
+      .cta-strip h2 {
+        color: #fff !important;
+      }
+
+      .cta-strip h2 em {
+        color: var(--yellow) !important;
+      }
+
+      /* Gratuitos - tema claro */
+      #gratuitos {
+        background: var(--cream) !important;
+      }
+
+      #gratuitos::before {
+        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .05) 0%, transparent 70%) !important;
+      }
+
+      .grat-head .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .grat-head .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .grat-card {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .2) !important;
+      }
+
+      .grat-card:hover {
+        border-color: rgba(118, 146, 125, .4) !important;
+      }
+
+      .grat-ico {
+        background: var(--ivory) !important;
+      }
+
+      .grat-card:hover .grat-ico {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+
+      .grat-btn {
+        color: var(--sage-dk) !important;
+        border-color: var(--sage-dk) !important;
+      }
+
+      .grat-btn:hover {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Preenche a safe-area acima da câmera/notch no iPhone -->
+  <div id="safe-top" aria-hidden="true"></div>
+
+  <div class="cur" id="cDot">
+    <div class="cur-dot"></div>
+  </div>
+  <div class="cur" id="cRing">
+    <div class="cur-ring"></div>
+  </div>
+
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <a href="servicos.html" class="active" onclick="closeMob()">Serviços</a>
+    <a href="dicas.html" onclick="closeMob()">Dicas e Fotos</a>
+    <a href="contato.html" onclick="closeMob()">Contato</a>
+  </div>
+
+  <nav id="nav" class="solid">
+    <a href="index.html" class="nav-logo">
+      <img src="media/icons/logo.png" alt="Única Organização" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servicos.html" class="active">Serviços</a></li>
+      <li><a href="dicas.html">Dicas e Fotos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <a href="contato.html" class="nav-cta">Agendar Consulta</a>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span class="eyebrow">O que fazemos</span>
+      <h1>Serviços que <em>transformam</em> espaços e carreiras</h1>
+      <p>Da formação de Domésticas Classe A à organização completa de ambientes — conheça tudo o que a Única Organização
+        pode fazer por você.</p>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos">
+    <div class="serv-header rv">
+      <div>
+        <span class="eyebrow">Nossos serviços</span>
+        <h2 class="sec-title">Escolha o serviço <em>ideal</em> para você</h2>
+      </div>
+      <p>Soluções completas para quem busca organização, capacitação e bem-estar — em casa, no trabalho e na carreira.
+      </p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card rv">
+        <div class="serv-num">01</div>
+        <div class="serv-ico">🏠</div>
+        <h3>Treinamento Personal Organizer</h3>
+        <p>Formação completa para auxiliares domésticas e diaristas que desejam atuar como personal organizers
+          certificadas — Domésticas Classe A.</p>
+        <span class="serv-arr">→</span>
+      </div>
+      <div class="serv-card rv">
+        <div class="serv-num">02</div>
+        <div class="serv-ico">📦</div>
+        <h3>Pós-Mudança</h3>
+        <p>Organização completa após mudanças residenciais ou comerciais — do destralamento à arrumação final, com
+          método e agilidade.</p>
+        <span class="serv-arr">→</span>
+      </div>
+      <div class="serv-card rv">
+        <div class="serv-num">03</div>
+        <div class="serv-ico">✨</div>
+        <h3>Consultoria de Organização</h3>
+        <p>Análise e reestruturação de ambientes residenciais e comerciais com metodologia própria, foco em
+          funcionalidade e harmonia.</p>
+        <span class="serv-arr">→</span>
+      </div>
+      <a href="#gratuitos" class="serv-card rv" style="text-decoration: none;">
+        <div class="serv-num">04</div>
+        <div class="serv-ico">📚</div>
+        <h3>Ebooks & Materiais Digitais</h3>
+        <p>Guias práticos, checklists e manuais para estudo e aperfeiçoamento profissional contínuo — conteúdo exclusivo
+          da Luana Coelho.</p>
+        <span class="serv-arr">→</span>
+      </a>
+      <div class="serv-card rv">
+        <div class="serv-num">05</div>
+        <div class="serv-ico">💼</div>
+        <h3>Mentoria Profissional</h3>
+        <p>Acompanhamento individualizado para quem quer se estabelecer como personal organizer: precificação, portfólio
+          e captação de clientes.</p>
+        <span class="serv-arr">→</span>
+      </div>
+      <div class="serv-card rv">
+        <div class="serv-num">06</div>
+        <div class="serv-ico">🎤</div>
+        <h3>Palestras & Workshops</h3>
+        <p>Eventos corporativos e comunitários sobre organização, produtividade e desenvolvimento profissional feminino.
+          Presencial e online.</p>
+        <span class="serv-arr">→</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="dep-head">
+      <span class="eyebrow">Depoimentos</span>
+      <h2 class="sec-title rv">O que dizem nossas <em>alunas</em></h2>
+    </div>
+    <div class="dep-track" id="depTrack">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <blockquote>"O treinamento da Luana mudou completamente minha vida profissional. Hoje sou personal organizer
+          certificada e tripliciei minha renda em 6 meses."</blockquote>
+        <div class="dep-author">
+          <div class="dep-av">M</div>
+          <div>
+            <div class="dep-name">Maria Santos</div>
+            <div class="dep-role">Personal Organizer · Goiânia, GO</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <blockquote>"A metodologia da Única é incrível! Aprendi a organizar espaços e a me posicionar no mercado.
+          Recomendo a todas as colegas."</blockquote>
+        <div class="dep-author">
+          <div class="dep-av">A</div>
+          <div>
+            <div class="dep-name">Ana Lima</div>
+            <div class="dep-role">Diarista Certificada · Palmas, TO</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <blockquote>"O pós-mudança da Luana foi um milagre! Em um dia, minha casa nova estava organizada, funcional e
+          com a cara da minha família."</blockquote>
+        <div class="dep-author">
+          <div class="dep-av">C</div>
+          <div>
+            <div class="dep-name">Claudia Ferreira</div>
+            <div class="dep-role">Cliente · Brasília, DF</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <blockquote>"Saí da mentoria com confiança para precificar meu trabalho com dignidade e captar clientes que
+          valorizam o que faço."</blockquote>
+        <div class="dep-author">
+          <div class="dep-av">J</div>
+          <div>
+            <div class="dep-name">Juliana Costa</div>
+            <div class="dep-role">Personal Organizer · São Paulo, SP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dep-nav">
+      <button onclick="scrollDep(-1)">←</button>
+      <button onclick="scrollDep(1)">→</button>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>Pronta para dar o<br>próximo passo na sua <em>carreira?</em></h2>
+    <a href="contato.html" class="btn-y">Fale com a Luana →</a>
+  </div>
+
+  <!-- GRATUITOS -->
+  <section id="gratuitos">
+    <div class="grat-head rv">
+      <span class="eyebrow">Materiais gratuitos</span>
+      <h2 class="sec-title">Conteúdos <em>gratuitos</em> para você</h2>
+      <p>Ferramentas práticas para organizar cada área da sua vida — do dia a dia àquela viagem especial.</p>
+    </div>
+
+    <div class="grat-grid">
+      <!-- Checklist de Viagem -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">✈️</div>
+        <h3>Checklist de Viagem</h3>
+        <p>Tenha a certeza que não esqueceu de nada para a sua viagem. Lista completa com itens essenciais.</p>
+        <a href="https://sun.eduzz.com/999119" class="grat-btn">Adquirir agora</a>
+      </div>
+
+      <!-- Tabela Cardápio Semanal -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">📅</div>
+        <h3>Tabela Cardápio Semanal</h3>
+        <p>Programe o cardápio das principais refeições diárias. Economize tempo e evite desperdício de comida.</p>
+        <a href="#" class="grat-btn">Adquirir agora</a>
+      </div>
+
+      <!-- Lista de Compras -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">🛒</div>
+        <h3>Lista de Compras</h3>
+        <p>Evite o esquecimento na hora das compras. Imprima a lista com a relação dos principais itens.</p>
+        <a href="https://chk.eduzz.com/2035014" class="grat-btn">Adquirir agora</a>
+      </div>
+
+      <!-- Para Limpeza -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">👔</div>
+        <h3>Cuidado com as Roupas</h3>
+        <p>Cuide corretamente das roupas sabendo o significado dos desenhos nas etiquetas.</p>
+        <a href="https://chk.eduzz.com/2034983" class="grat-btn">Adquirir agora</a>
+      </div>
+
+      <!-- Para Cozinha -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">🍳</div>
+        <h3>Organização de Cozinha</h3>
+        <p>Dicas práticas para manter sua cozinha funcional, organizada e pronta para o dia a dia.</p>
+        <a href="#" class="grat-btn">Baixar agora</a>
+      </div>
+
+      <!-- Bônus -->
+      <div class="grat-card rv">
+        <span class="grat-badge">Gratuito</span>
+        <div class="grat-ico">🎁</div>
+        <h3>Mais conteúdos em breve</h3>
+        <p>Novos materiais estão sendo preparados com muito carinho. Fique de olho nas novidades!</p>
+        <a href="contato.html" class="grat-btn">Ser avisado</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo">Unica Organização</div>
+    <p>© 2026 Única Organização, Serviços e Treinamentos LTDA · CNPJ 34.121.587/0001-09 · Palmas, TO</p>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/unicaorganizacao/" target="_blank" aria-label="Instagram"><svg
+          viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a>
+      <a href="https://wa.me/556392369313" aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg></a>
+      <a href="https://www.youtube.com/@unicaorganizacao6285" target="_blank" aria-label="YouTube"><svg
+          viewBox="0 0 24 24">
+          <path
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg></a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#3b493f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#76927d" media="(prefers-color-scheme: light)">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contato | Única Organização</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:wght@200;300;400;500&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/png" href="media/icons/favicon.PNG">
+  <link rel="apple-touch-icon" href="media/icons/favicon.PNG">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── CONTATO MAIN ───────────────────────── */
+    #contato {
+      background: var(--sage-dk);
+      padding: 6rem 8vw 9rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contato::before {
+      content: '';
+      position: absolute;
+      bottom: -4rem;
+      right: -4rem;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(247, 222, 142, .06);
+      pointer-events: none;
+    }
+
+    #contato::after {
+      content: '';
+      position: absolute;
+      top: -6rem;
+      left: -6rem;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(118, 146, 125, .15);
+      pointer-events: none;
+    }
+
+    .contato-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7vw;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contato-left .eyebrow {
+      color: var(--yellow);
+    }
+
+    .contato-left .sec-title {
+      color: var(--white);
+    }
+
+    .contato-left>p {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.95;
+      color: rgba(250, 250, 246, .5);
+      margin-bottom: 2.5rem;
+    }
+
+    .c-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .c-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .c-ico {
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border: 1px solid rgba(247, 222, 142, .2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+    }
+
+    .c-txt {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(250, 250, 246, .55);
+    }
+
+    .c-txt strong {
+      display: block;
+      font-size: .78rem;
+      font-weight: 400;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: .2rem;
+    }
+
+    .c-txt a {
+      color: rgba(250, 250, 246, .55);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .c-txt a:hover {
+      color: var(--yellow);
+    }
+
+    /* ── FORM ───────────────────────────────── */
+    .form-wrap {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(247, 222, 142, .1);
+      padding: 2.5rem;
+      border-radius: 3px;
+    }
+
+    .form-wrap h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: .4rem;
+    }
+
+    .form-wrap>p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(250, 250, 246, .35);
+      margin-bottom: 2rem;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .fg {
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+
+    .fg label {
+      font-size: .63rem;
+      font-weight: 300;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 246, .35);
+    }
+
+    .fg input,
+    .fg textarea,
+    .fg select {
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(247, 222, 142, .15);
+      padding: .9rem 1.1rem;
+      color: var(--white);
+      font-family: 'Rubik', sans-serif;
+      font-size: .85rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color .3s;
+      width: 100%;
+      border-radius: 2px;
+    }
+
+    .fg input::placeholder,
+    .fg textarea::placeholder {
+      color: rgba(250, 250, 246, .2);
+    }
+
+    .fg input:focus,
+    .fg textarea:focus,
+    .fg select:focus {
+      border-color: var(--yellow);
+    }
+
+    .fg select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23F2E195' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    .fg select option {
+      background: var(--sage-dk);
+    }
+
+    .fg textarea {
+      resize: none;
+      min-height: 110px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .btn-form {
+      padding: 1rem 2rem;
+      background: var(--yellow);
+      border: none;
+      color: var(--deep);
+      font-family: 'Rubik', sans-serif;
+      font-size: .74rem;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .3s, transform .2s;
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-top: .5rem;
+    }
+
+    .btn-form:hover {
+      background: var(--yellow-dk);
+      transform: translateY(-2px);
+    }
+
+    .btn-form .arr {
+      transition: transform .3s;
+    }
+
+    .btn-form:hover .arr {
+      transform: translateX(5px);
+    }
+
+    /* ── WHATSAPP CTA ───────────────────────── */
+    .wa-cta {
+      background: var(--sage);
+      padding: 4rem 8vw;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .wa-cta-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: .4rem;
+    }
+
+    .wa-cta-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(250, 250, 246, .6);
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      padding: 1rem 2rem;
+      background: #25D366;
+      color: white;
+      font-size: .76rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background .3s, transform .2s;
+      white-space: nowrap;
+    }
+
+    .btn-wa:hover {
+      background: #1db954;
+      transform: translateY(-2px);
+    }
+
+    .btn-wa .wa-icon {
+      font-size: 1rem;
+    }
+
+    /* ── MAP PLACEHOLDER ────────────────────── */
+    #mapa {
+      background: var(--deep);
+      padding: 6rem 8vw;
+    }
+
+    .map-wrap {
+      background: var(--sage-dk);
+      border-radius: 3px;
+      overflow: hidden;
+      height: 380px;
+      border: 1px solid rgba(118, 146, 125, .2);
+      margin-top: 2rem;
+    }
+
+    .map-link {
+      margin-top: 1rem;
+    }
+
+    .map-link a {
+      font-size: .85rem;
+      font-weight: 300;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(247, 222, 142, .3);
+      padding-bottom: 2px;
+      transition: border-color .2s;
+    }
+
+    .map-link a:hover {
+      border-color: var(--yellow);
+    }
+
+    .mapa-header {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .mapa-info .eyebrow {
+      color: var(--yellow);
+    }
+
+    .mapa-info .sec-title {
+      color: var(--white);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 960px) {
+      .contato-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .wa-cta {
+        flex-direction: column;
+      }
+    }
+
+
+
+    @media (prefers-color-scheme: light) {
+      #contato {
+        background: var(--ivory) !important;
+      }
+
+      #contato::before {
+        background: rgba(118, 146, 125, .06) !important;
+      }
+
+      #contato::after {
+        background: rgba(118, 146, 125, .08) !important;
+      }
+
+      .contato-left .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .contato-left .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .contato-left>p {
+        color: var(--muted) !important;
+      }
+
+      .c-ico {
+        border-color: rgba(118, 146, 125, .3) !important;
+        color: var(--sage) !important;
+      }
+
+      .c-txt {
+        color: var(--muted) !important;
+      }
+
+      .c-txt strong {
+        color: var(--sage-md) !important;
+      }
+
+      .c-txt a {
+        color: var(--muted) !important;
+      }
+
+      .c-txt a:hover {
+        color: var(--sage) !important;
+      }
+
+      .form-wrap {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .22) !important;
+        box-shadow: 0 4px 24px rgba(59, 73, 63, .1) !important;
+      }
+
+      .form-wrap h3 {
+        color: var(--deep) !important;
+      }
+
+      .form-wrap>p {
+        color: var(--muted) !important;
+      }
+
+      .fg label {
+        color: var(--sage-md) !important;
+      }
+
+      .fg input,
+      .fg textarea,
+      .fg select {
+        background: var(--ivory) !important;
+        border-color: rgba(118, 146, 125, .28) !important;
+        color: var(--text) !important;
+      }
+
+      .fg input::placeholder,
+      .fg textarea::placeholder {
+        color: rgba(77, 102, 85, .35) !important;
+      }
+
+      .fg input:focus,
+      .fg textarea:focus,
+      .fg select:focus {
+        border-color: var(--sage) !important;
+      }
+
+      .fg select option {
+        background: var(--ivory) !important;
+        color: var(--text) !important;
+      }
+
+      .btn-form {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+
+      .btn-form:hover {
+        background: var(--sage-dk) !important;
+      }
+
+      .wa-cta {
+        background: var(--cream) !important;
+      }
+
+      .wa-cta-text h3 {
+        color: var(--deep) !important;
+      }
+
+      .wa-cta-text p {
+        color: var(--muted) !important;
+      }
+
+      .btn-wa {
+        border-color: rgba(118, 146, 125, .45) !important;
+        color: var(--sage-dk) !important;
+      }
+
+      .btn-wa:hover {
+        background: var(--ivory) !important;
+        border-color: var(--sage) !important;
+      }
+
+      #mapa {
+        background: var(--cream) !important;
+      }
+
+      .mapa-info .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .mapa-info .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .map-wrap {
+        filter: saturate(.85) brightness(1.02) !important;
+      }
+
+      .map-link a {
+        color: var(--sage-md) !important;
+        border-color: rgba(118, 146, 125, .35) !important;
+      }
+    }
+
+    @media (prefers-color-scheme: light) {
+      #contato {
+        background: var(--ivory) !important;
+      }
+
+      #contato::before {
+        background: rgba(118, 146, 125, .06) !important;
+      }
+
+      #contato::after {
+        background: rgba(118, 146, 125, .08) !important;
+      }
+
+      .contato-left .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .contato-left .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .contato-left>p {
+        color: var(--muted) !important;
+      }
+
+      .c-ico {
+        border-color: rgba(118, 146, 125, .3) !important;
+        color: var(--sage) !important;
+      }
+
+      .c-txt {
+        color: var(--muted) !important;
+      }
+
+      .c-txt strong {
+        color: var(--sage-md) !important;
+      }
+
+      .c-txt a {
+        color: var(--muted) !important;
+      }
+
+      .c-txt a:hover {
+        color: var(--sage) !important;
+      }
+
+      .form-wrap {
+        background: var(--white) !important;
+        border-color: rgba(118, 146, 125, .22) !important;
+        box-shadow: 0 4px 24px rgba(59, 73, 63, .1) !important;
+      }
+
+      .form-wrap h3 {
+        color: var(--deep) !important;
+      }
+
+      .form-wrap>p {
+        color: var(--muted) !important;
+      }
+
+      .fg label {
+        color: var(--sage-md) !important;
+      }
+
+      .fg input,
+      .fg textarea,
+      .fg select {
+        background: var(--ivory) !important;
+        border-color: rgba(118, 146, 125, .28) !important;
+        color: var(--text) !important;
+      }
+
+      .fg input::placeholder,
+      .fg textarea::placeholder {
+        color: rgba(77, 102, 85, .35) !important;
+      }
+
+      .fg input:focus,
+      .fg textarea:focus,
+      .fg select:focus {
+        border-color: var(--sage) !important;
+      }
+
+      .fg select option {
+        background: var(--ivory) !important;
+        color: var(--text) !important;
+      }
+
+      .btn-form {
+        background: var(--sage) !important;
+        color: #fff !important;
+      }
+
+      .btn-form:hover {
+        background: var(--sage-dk) !important;
+      }
+
+      .wa-cta {
+        background: var(--cream) !important;
+      }
+
+      .wa-cta-text h3 {
+        color: var(--deep) !important;
+      }
+
+      .wa-cta-text p {
+        color: var(--muted) !important;
+      }
+
+      .btn-wa {
+        border-color: rgba(118, 146, 125, .45) !important;
+        color: var(--sage-dk) !important;
+      }
+
+      .btn-wa:hover {
+        background: var(--ivory) !important;
+        border-color: var(--sage) !important;
+      }
+
+      #mapa {
+        background: var(--cream) !important;
+      }
+
+      .mapa-info .eyebrow {
+        color: var(--sage-md) !important;
+      }
+
+      .mapa-info .sec-title {
+        color: var(--deep) !important;
+      }
+
+      .map-wrap {
+        filter: saturate(.85) brightness(1.02) !important;
+      }
+
+      .map-link a {
+        color: var(--sage-md) !important;
+        border-color: rgba(118, 146, 125, .35) !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Preenche a safe-area acima da câmera/notch no iPhone -->
+  <div id="safe-top" aria-hidden="true"></div>
+
+  <div class="cur" id="cDot">
+    <div class="cur-dot"></div>
+  </div>
+  <div class="cur" id="cRing">
+    <div class="cur-ring"></div>
+  </div>
+
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" onclick="closeMob()">✕</button>
+    <a href="index.html" onclick="closeMob()">Home</a>
+    <a href="servicos.html" onclick="closeMob()">Serviços</a>
+    <a href="dicas.html" onclick="closeMob()">Dicas e Fotos</a>
+    <a href="contato.html" class="active" onclick="closeMob()">Contato</a>
+  </div>
+
+  <nav id="nav" class="solid">
+    <a href="index.html" class="nav-logo">
+      <img src="media/icons/logo.png" alt="Única Organização" class="nav-logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="dicas.html">Dicas e Fotos</a></li>
+      <li><a href="contato.html" class="active">Contato</a></li>
+    </ul>
+    <a href="contato.html" class="nav-cta">Agendar Consulta</a>
+    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span class="eyebrow">Fale com a Luana</span>
+      <h1>Vamos começar sua <em>transformação?</em></h1>
+      <p>Entre em contato e descubra o serviço ideal para você — seja um treinamento, uma consultoria ou um pós-mudança.
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTATO FORM -->
+  <section id="contato">
+    <div class="contato-inner">
+      <div class="contato-left rvl">
+        <span class="eyebrow">Informações de contato</span>
+        <h2 class="sec-title">Estamos <em>prontas</em> para te atender</h2>
+        <p>Escolha a melhor forma de entrar em contato. Respondemos em até 24 horas nos dias úteis.</p>
+        <div class="c-info">
+          <div class="c-item">
+            <div class="c-ico">📍</div>
+            <div class="c-txt">
+              <strong>Endereço</strong>
+              203 Sul, Alameda 03, QI 4, Lote 12<br>
+              Cond. Aldeia do Sol · Palmas, TO
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">📸</div>
+            <div class="c-txt">
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/unicaorganizacao/" target="_blank">@unicaorganizacao</a> · 29K
+              seguidores
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">💬</div>
+            <div class="c-txt">
+              <strong>WhatsApp</strong>
+              Atendimento seg.–sex., das 8h às 18h
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">📺</div>
+            <div class="c-txt">
+              <strong>Na mídia</strong>
+              CBN · RedeTV · Entrevistas e matérias
+            </div>
+          </div>
+          <div class="c-item">
+            <div class="c-ico">🏅</div>
+            <div class="c-txt">
+              <strong>Certificação</strong>
+              Certificada ANPOP — Associação Nacional dos Profissionais de Organização e Produtividade
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rvr">
+        <div class="form-wrap">
+          <h3>Envie sua mensagem</h3>
+          <p>Preencha o formulário e entraremos em contato em breve.</p>
+          <form class="form" onsubmit="return enviar(event)">
+            <div class="form-row">
+              <div class="fg"><label>Nome completo</label><input type="text" placeholder="Seu nome" required></div>
+              <div class="fg"><label>WhatsApp</label><input type="tel" placeholder="(63) 9 0000-0000"></div>
+            </div>
+            <div class="fg"><label>E-mail</label><input type="email" placeholder="seu@email.com" required></div>
+            <div class="fg">
+              <label>Interesse</label>
+              <select required>
+                <option value="" disabled selected>Selecione um serviço</option>
+                <option>Treinamento Personal Organizer</option>
+                <option>Pós-Mudança</option>
+                <option>Consultoria de Organização</option>
+                <option>Ebooks & Materiais Digitais</option>
+                <option>Mentoria Profissional</option>
+                <option>Palestra ou Workshop</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="fg"><label>Mensagem</label><textarea placeholder="Conte-nos o que você busca..."></textarea>
+            </div>
+            <button type="submit" class="btn-form">Enviar mensagem <span class="arr">→</span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP CTA -->
+  <div class="wa-cta">
+    <div class="wa-cta-text">
+      <h3>Prefere falar pelo WhatsApp?</h3>
+      <p>Clique no botão e inicie uma conversa direta com a Luana.</p>
+    </div>
+    <a href="https://wa.me/556392369313" target="_blank" class="btn-wa">
+      <span class="wa-icon">💬</span> Abrir no WhatsApp
+    </a>
+  </div>
+
+  <!-- MAPA -->
+  <section id="mapa">
+    <div class="mapa-header rv">
+      <div class="mapa-info">
+        <span class="eyebrow">Localização</span>
+        <h2 class="sec-title">Onde nos <em>encontrar</em></h2>
+      </div>
+    </div>
+    <div class="map-wrap rv">
+      <iframe
+        src="https://maps.google.com/maps?q=203+Sul+Arso+21+Alameda+03+QI+4+Lote+12+Condominio+Aldeia+do+Sol+Palmas+TO+Brasil&output=embed&z=16&hl=pt-BR"
+        width="100%" height="100%" style="border:0;display:block;filter:saturate(.85) brightness(.92);"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Localização Única Organização — Palmas, TO">
+      </iframe>
+    </div>
+    <div class="map-link rv">
+      <a href="https://maps.google.com/?q=203+Sul+Arso+21+Alameda+03+QI+4+Lote+12+Palmas+TO" target="_blank">
+        Abrir no Google Maps →
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-logo">Unica Organização</div>
+    <p>© 2026 Única Organização, Serviços e Treinamentos LTDA · CNPJ 34.121.587/0001-09 · Palmas, TO</p>
+    <div class="foot-social">
+      <a href="https://www.instagram.com/unicaorganizacao/" target="_blank" aria-label="Instagram"><svg
+          viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg></a>
+      <a href="https://wa.me/556392369313" aria-label="WhatsApp"><svg viewBox="0 0 24 24">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg></a>
+      <a href="https://www.youtube.com/@unicaorganizacao6285" target="_blank" aria-label="YouTube"><svg
+          viewBox="0 0 24 24">
+          <path
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg></a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
