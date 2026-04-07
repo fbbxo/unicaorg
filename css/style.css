@@ -140,6 +140,8 @@
       background: #3b493f !important;
       backdrop-filter: none !important;
       box-shadow: 0 1px 0 rgba(118,146,125,.25) !important;
+      transform: translate3d(0,0,0) !important;
+      z-index: 9999 !important;
     }
 
     /* Logo sempre branco */
@@ -220,6 +222,8 @@
       padding-top: calc(15px + env(safe-area-inset-top)) !important;
       margin-top: 0 !important;
       box-shadow: 0 1px 0 rgba(118,146,125,.3) !important;
+      transform: translate3d(0,0,0) !important;
+      z-index: 9999 !important;
     }
     nav .nav-logo-img,
     nav.scrolled .nav-logo-img,
