@@ -474,6 +474,13 @@
 
 
     @media (prefers-color-scheme: light) {
+      #hero {
+        background: var(--sage) !important;
+      }
+      .hero-overlay {
+        background: linear-gradient(110deg, rgba(118, 146, 125, .92) 0%, rgba(118, 146, 125, .7) 50%, rgba(118, 146, 125, .2) 100%) !important;
+      }
+
       #sobre {
         background: var(--cream) !important;
       }
@@ -697,17 +704,29 @@
       CAM.position.z = 14;
       function rsz() { const w = c.clientWidth, h = c.clientHeight; R.setSize(w, h, false); CAM.aspect = w / h; CAM.updateProjectionMatrix(); }
       rsz(); window.addEventListener('resize', rsz);
-      S.add(new THREE.AmbientLight(0xedeadb, .5));
-      const dl = new THREE.DirectionalLight(0x94aa98, 1.4); dl.position.set(4, 8, 5); S.add(dl);
-      const dl2 = new THREE.DirectionalLight(0xf7de8e, .8); dl2.position.set(-4, -2, 4); S.add(dl2);
+      const isLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      S.add(new THREE.AmbientLight(isLight ? 0xffffff : 0xedeadb, .5));
+      const dl = new THREE.DirectionalLight(isLight ? 0xffffff : 0x94aa98, 1.4); dl.position.set(4, 8, 5); S.add(dl);
+      const dl2 = new THREE.DirectionalLight(isLight ? 0xfdf3c4 : 0xf7de8e, .8); dl2.position.set(-4, -2, 4); S.add(dl2);
+      
+      const shapeConfigs = isLight ? [
+        [new THREE.SphereGeometry(1.4, 32, 32), 0xf0f4f1, .15, false, 6, 1, -4],
+        [new THREE.OctahedronGeometry(1.1), 0xf7de8e, .12, true, -5, 2, -6],
+        [new THREE.IcosahedronGeometry(.9), 0xffffff, .1, false, 4, -2, -3],
+        [new THREE.TetrahedronGeometry(.8), 0xf7de8e, .1, true, -3, -3, -5],
+        [new THREE.SphereGeometry(1.8, 16, 16), 0x3b493f, .08, true, 8, 4, -8],
+        [new THREE.OctahedronGeometry(.6), 0xf0f4f1, .18, false, 2, 3, -2]
+      ] : [
+        [new THREE.SphereGeometry(1.4, 32, 32), 0x76927d, .15, false, 6, 1, -4],
+        [new THREE.OctahedronGeometry(1.1), 0xf7de8e, .12, true, -5, 2, -6],
+        [new THREE.IcosahedronGeometry(.9), 0x94aa98, .1, false, 4, -2, -3],
+        [new THREE.TetrahedronGeometry(.8), 0xf7de8e, .1, true, -3, -3, -5],
+        [new THREE.SphereGeometry(1.8, 16, 16), 0x4d6655, .08, true, 8, 4, -8],
+        [new THREE.OctahedronGeometry(.6), 0x94aa98, .18, false, 2, 3, -2]
+      ];
+
       const shapes = [];
-      [[new THREE.SphereGeometry(1.4, 32, 32), 0x76927d, .15, false, 6, 1, -4],
-      [new THREE.OctahedronGeometry(1.1), 0xf7de8e, .12, true, -5, 2, -6],
-      [new THREE.IcosahedronGeometry(.9), 0x94aa98, .1, false, 4, -2, -3],
-      [new THREE.TetrahedronGeometry(.8), 0xf7de8e, .1, true, -3, -3, -5],
-      [new THREE.SphereGeometry(1.8, 16, 16), 0x4d6655, .08, true, 8, 4, -8],
-      [new THREE.OctahedronGeometry(.6), 0x94aa98, .18, false, 2, 3, -2]
-      ].forEach(([g, col, op, wire, px, py, pz]) => {
+      shapeConfigs.forEach(([g, col, op, wire, px, py, pz]) => {
         const m = new THREE.Mesh(g, wire ? new THREE.MeshBasicMaterial({ color: col, wireframe: true, transparent: true, opacity: op }) : new THREE.MeshPhongMaterial({ color: col, shininess: 60, transparent: true, opacity: op }));
         m.position.set(px, py, pz); m._rx = (Math.random() - .5) * .01; m._ry = (Math.random() - .5) * .009;
         m._fa = Math.random() * Math.PI * 2; m._fs = .25 + Math.random() * .35; S.add(m); shapes.push(m);
@@ -715,7 +734,7 @@
       const pg = new THREE.BufferGeometry(), n = 300, pp = new Float32Array(n * 3);
       for (let i = 0; i < n; i++) { pp[i * 3] = (Math.random() - .5) * 32; pp[i * 3 + 1] = (Math.random() - .5) * 22; pp[i * 3 + 2] = (Math.random() - .5) * 14 - 3; }
       pg.setAttribute('position', new THREE.BufferAttribute(pp, 3));
-      S.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xf7de8e, size: .055, transparent: true, opacity: .35 })));
+      S.add(new THREE.Points(pg, new THREE.PointsMaterial({ color: isLight ? 0xffffff : 0xf7de8e, size: .055, transparent: true, opacity: .35 })));
       let mx2 = 0, my2 = 0;
       document.addEventListener('mousemove', e => { mx2 = (e.clientX / innerWidth - .5) * 2; my2 = (e.clientY / innerHeight - .5) * 2; });
       let t = 0;

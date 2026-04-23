@@ -95,9 +95,9 @@
   footer { background: var(--deep); padding: 2.5rem 8vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; }
   .foot-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: var(--cream); letter-spacing: .04em; }
   .foot-logo span { color: var(--yellow); }
-  footer p { font-size: .68rem; font-weight: 300; letter-spacing: .08em; color: rgba(250,250,246,.25); }
+  footer p { font-size: .68rem; font-weight: 300; letter-spacing: .08em; color: rgba(250,250,246,.65); }
   .foot-social { display: flex; gap: .8rem; }
-  .foot-social a { width: 34px; height: 34px; border: 1px solid rgba(247,222,142,.18); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: rgba(250,250,246,.35); text-decoration: none; transition: all .3s; }
+  .foot-social a { width: 34px; height: 34px; border: 1px solid rgba(247,222,142,.35); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: rgba(250,250,246,.75); text-decoration: none; transition: all .3s; }
   .foot-social a:hover { border-color: var(--yellow); color: var(--yellow); }
   .foot-social a svg { display: block; width: 16px; height: 16px; fill: currentColor; }
   
@@ -193,21 +193,21 @@
   body { background: var(--cream); }
 
   /* ── Cursor ─────────────────────────────── */
-  .cur-dot  { background: var(--sage); }
-  .cur-ring { border-color: var(--sage); }
+  .cur-dot  { background: var(--yellow-dk); }
+  .cur-ring { border-color: var(--deep); }
 
   /* ── Navbar ─────────────────────────────── */
-  nav {
+  nav.scrolled, nav.solid {
     background: rgba(232,236,233,.97) !important;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 1px 0 rgba(118,146,125,.2);
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 1px 0 rgba(118,146,125,.2) !important;
   }
-  nav .nav-logo-img {
+  nav.scrolled .nav-logo-img, nav.solid .nav-logo-img {
     filter: brightness(0) saturate(100%) invert(35%) sepia(18%) saturate(600%) hue-rotate(60deg) !important;
   }
-  nav .hamburger span { background: var(--deep) !important; }
-  nav .nav-links a { color: var(--deep) !important; }
-  nav .nav-links a.active { color: var(--sage) !important; }
+  nav.scrolled .hamburger span, nav.solid .hamburger span { background: var(--deep) !important; }
+  nav.scrolled .nav-links a, nav.solid .nav-links a { color: var(--deep) !important; }
+  nav.scrolled .nav-links a.active, nav.solid .nav-links a.active { color: var(--sage) !important; }
   nav .nav-cta { background: var(--sage) !important; color: var(--cream) !important; }
 
   /* Mobile nav — mesmo tratamento no tema claro */
