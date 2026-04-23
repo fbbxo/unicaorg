@@ -78,5 +78,40 @@ function enviar(e) {
 // ── DEPOIMENTOS SCROLL ───────────────────────
 function scrollDep(dir) {
   const t = document.getElementById('depTrack');
-  if (t) t.scrollBy({ left: dir * 360, behavior: 'smooth' });
+  if (t) t.scrollBy({ left: dir * 480, behavior: 'smooth' });
+}
+
+// Drag to scroll para depoimentos
+const depTrack = document.getElementById('depTrack');
+if (depTrack) {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  depTrack.addEventListener('mousedown', (e) => {
+    isDown = true;
+    depTrack.style.cursor = 'grabbing';
+    depTrack.style.userSelect = 'none';
+    startX = e.pageX - depTrack.offsetLeft;
+    scrollLeft = depTrack.scrollLeft;
+    depTrack.style.scrollSnapType = 'none';
+  });
+  
+  const stopDrag = () => {
+    isDown = false;
+    depTrack.style.cursor = '';
+    depTrack.style.userSelect = '';
+    depTrack.style.scrollSnapType = '';
+  };
+
+  depTrack.addEventListener('mouseleave', stopDrag);
+  depTrack.addEventListener('mouseup', stopDrag);
+  
+  depTrack.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - depTrack.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    depTrack.scrollLeft = scrollLeft - walk;
+  });
 }
