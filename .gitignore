@@ -1,0 +1,26 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+
+# Editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs e temporários
+*.log
+npm-debug.log*
+.cache/
+
+# Build outputs (caso adicione build no futuro)
+dist/
+build/
+node_modules/
+
+# Variáveis de ambiente (caso use)
+.env
+.env.local

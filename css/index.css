@@ -1,0 +1,506 @@
+/* ═══════════════════════════════════════════
+   ÚNICA ORGANIZAÇÃO — INDEX (estilos da página)
+   ═══════════════════════════════════════════ */
+
+/* ── NAV TRANSPARENTE (apenas home, antes de scrollar) ── */
+    #nav:not(.scrolled) .nav-links a {
+      color: rgba(250, 250, 246, .78);
+    }
+
+    #nav:not(.scrolled) .nav-links a.active {
+      color: var(--yellow-lt);
+    }
+
+    #nav:not(.scrolled) .nav-links a::after {
+      background: var(--yellow);
+    }
+
+    #nav:not(.scrolled) .hamburger span {
+      background: var(--cream);
+    }
+
+    /* ── HERO ───────────────────────────────── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 680px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--deep);
+    }
+
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(110deg, rgba(59, 73, 63, .92) 0%, rgba(59, 73, 63, .7) 50%, rgba(59, 73, 63, .2) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8vw;
+      max-width: 1100px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(247, 222, 142, .15);
+      border: 1px solid rgba(247, 222, 142, .3);
+      padding: .4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2.4rem;
+      opacity: 0;
+      animation: fadeUp .7s .3s forwards;
+    }
+
+    .hero-tag span {
+      font-size: .66rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--yellow);
+    }
+
+    .hero-tag .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sage-lt);
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6.5vw, 6rem);
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 2.4rem;
+      opacity: 0;
+      animation: fadeUp .9s .5s forwards;
+    }
+
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--yellow);
+    }
+
+    .hero-slogan {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(250, 250, 246, .65);
+      max-width: 520px;
+      margin-bottom: 3.2rem;
+      opacity: 0;
+      animation: fadeUp .9s .7s forwards;
+    }
+
+    .hero-slogan strong {
+      color: var(--yellow-lt);
+      font-weight: 400;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 2.4rem;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .9s .9s forwards;
+    }
+
+    .btn-outline-light {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .76rem;
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 246, .7);
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    .btn-outline-light::after {
+      content: '→';
+      transition: transform .3s;
+    }
+
+    .btn-outline-light:hover {
+      color: var(--yellow);
+    }
+
+    .btn-outline-light:hover::after {
+      transform: translateX(5px);
+    }
+
+    .hero-badges {
+      position: absolute;
+      bottom: 3rem;
+      right: 8vw;
+      z-index: 2;
+      display: flex;
+      gap: 1rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.3s forwards;
+    }
+
+    .hero-badge-pill {
+      background: rgba(255, 255, 255, .08);
+      border: 1px solid rgba(255, 255, 255, .12);
+      backdrop-filter: blur(8px);
+      padding: .5rem 1rem;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .hero-badge-pill span {
+      font-size: .65rem;
+      font-weight: 300;
+      letter-spacing: .1em;
+      color: rgba(250, 250, 246, .7);
+    }
+
+    .hero-badge-pill .icon {
+      font-size: .85rem;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+
+    .hero-scroll span {
+      font-size: .58rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(250, 250, 246, .35);
+    }
+
+    .scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(var(--sage-lt), transparent);
+      animation: pulse 2s infinite;
+    }
+
+    /* ── SOBRE (POLAROID STYLE) ──────────────── */
+    #sobre {
+      padding: 9rem 8vw 9rem 10vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6vw;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+    }
+
+    #sobre .sobre-visual {
+      order: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 2vw;
+    }
+
+    .sobre-bg-text {
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 11rem;
+      font-weight: 700;
+      color: rgba(118, 146, 125, .05);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* Card estilo polaroid */
+    .sobre-canvas-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      background: var(--white);
+      padding: 14px 14px 80px 14px;
+      /* padding inferior maior para o "rodapé" da polaroid */
+      border-radius: 4px;
+      box-shadow:
+        0 4px 8px rgba(59, 73, 63, .1),
+        0 16px 48px rgba(59, 73, 63, .18),
+        0 32px 80px rgba(59, 73, 63, .12);
+      /* Leve inclinação */
+      transform: rotate(-1.5deg);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .sobre-canvas-wrap:hover {
+      transform: rotate(0deg) translateY(-6px);
+      box-shadow:
+        0 8px 16px rgba(59, 73, 63, .12),
+        0 24px 64px rgba(59, 73, 63, .22),
+        0 48px 100px rgba(59, 73, 63, .14);
+    }
+
+    /* Foto dentro do card */
+    .sobre-foto-inner {
+      width: 100%;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .sobre-foto {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .sobre-canvas-wrap:hover .sobre-foto {
+      transform: scale(1.03);
+    }
+
+    /* Badge amarelo saindo para fora no canto inf esquerdo */
+    .sobre-luana-badge {
+      position: absolute;
+      bottom: -1.6rem;
+      left: -1.4rem;
+      background: var(--yellow);
+      padding: 1rem 1.5rem;
+      border-radius: 3px;
+      max-width: 210px;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(59, 73, 63, .18);
+      transform: rotate(1.5deg);
+      /* contra-rotaciona pra ficar reto */
+    }
+
+    .sobre-luana-badge .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--deep);
+      line-height: 1.2;
+    }
+
+    .sobre-luana-badge .title {
+      font-size: .62rem;
+      font-weight: 300;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--sage-dk);
+      margin-top: .3rem;
+    }
+
+    /* Badge ANPOP abaixo do card */
+    .sobre-anpop {
+      margin-top: 3rem;
+      background: var(--sage);
+      padding: .6rem 1.2rem;
+      border-radius: 100px;
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      margin-left: .5rem;
+    }
+
+    .sobre-anpop span {
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+
+    /* Textos e Stats */
+    #sobre .rvr {
+      order: 2;
+    }
+
+    .sobre-text p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .midia-strip {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 2rem;
+      padding: .8rem 1.2rem;
+      background: var(--ivory);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .midia-strip .label {
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .midia-strip .tags {
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+    }
+
+    .midia-tag {
+      font-size: .76rem;
+      font-weight: 400;
+      padding: .28rem .8rem;
+      border: 1px solid rgba(118, 146, 125, .3);
+      border-radius: 100px;
+      color: var(--sage-md);
+    }
+
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(118, 146, 125, .15);
+    }
+
+    .stat .n {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--sage);
+      line-height: 1;
+    }
+
+    .stat .l {
+      font-size: .76rem;
+      font-weight: 300;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: .25rem;
+    }
+
+    .sobre-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 960px) {
+      #sobre {
+        grid-template-columns: 1fr;
+        padding: 6rem 6vw;
+      }
+
+      #sobre .sobre-visual {
+        padding-left: 0;
+        align-items: center;
+      }
+
+      .sobre-bg-text {
+        display: none;
+      }
+
+      .sobre-canvas-wrap {
+        max-width: 320px;
+        transform: rotate(-1deg);
+      }
+
+      .hero-badges {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .sobre-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+
+
+    @media (prefers-color-scheme: light) {
+      #hero {
+        background: var(--sage) !important;
+      }
+      .hero-overlay {
+        background: linear-gradient(110deg, rgba(118, 146, 125, .92) 0%, rgba(118, 146, 125, .7) 50%, rgba(118, 146, 125, .2) 100%) !important;
+      }
+
+      #sobre {
+        background: var(--cream) !important;
+      }
+
+      .sobre-bg-text {
+        color: rgba(118, 146, 125, .08) !important;
+      }
+
+      .sobre-text p {
+        color: var(--muted) !important;
+      }
+
+      .midia-strip {
+        background: var(--ivory) !important;
+        border-color: var(--sage) !important;
+      }
+
+      .midia-tag {
+        border-color: rgba(118, 146, 125, .4) !important;
+        color: var(--sage-md) !important;
+      }
+
+      .stat .l {
+        color: var(--muted) !important;
+      }
+
+      .sobre-canvas-wrap {
+        box-shadow: 0 4px 8px rgba(59, 73, 63, .12), 0 16px 48px rgba(59, 73, 63, .15), 0 32px 80px rgba(59, 73, 63, .1) !important;
+      }
+
+      .sobre-luana-badge {
+        background: var(--yellow) !important;
+      }
+
+      .sobre-anpop {
+        background: var(--sage) !important;
+      }
+    }

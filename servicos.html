@@ -6,837 +6,35 @@
   <meta name="theme-color" content="#3b493f" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#76927d" media="(prefers-color-scheme: light)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Serviços | Única Organização</title>
+  <title>Serviços | Única Organização — Personal Organizer Palmas/TO</title>
+  <meta name="description" content="Treinamento Personal Organizer, pós-mudança, consultoria, mentoria e palestras. Conheça os serviços da Única Organização com a Luana Coelho.">
+  <link rel="canonical" href="https://unicaorganizacao.com.br/servicos.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Única Organização">
+  <meta property="og:title" content="Serviços | Única Organização">
+  <meta property="og:description" content="Treinamento Personal Organizer, pós-mudança, consultoria, mentoria e palestras com Luana Coelho.">
+  <meta property="og:url" content="https://unicaorganizacao.com.br/servicos.html">
+  <meta property="og:image" content="https://unicaorganizacao.com.br/media/luana_picture_1.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Serviços | Única Organização">
+  <meta name="twitter:description" content="Treinamento Personal Organizer, pós-mudança, consultoria, mentoria e palestras com Luana Coelho.">
+  <meta name="twitter:image" content="https://unicaorganizacao.com.br/media/luana_picture_1.jpg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Rubik:wght@200;300;400;500&display=swap"
     rel="stylesheet">
-  <link rel="icon" type="image/png" href="media/icons/favicon.PNG">
-  <link rel="apple-touch-icon" href="media/icons/favicon.PNG">
+  <link rel="icon" type="image/png" sizes="32x32" href="media/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="media/icons/favicon.png">
+  <link rel="apple-touch-icon" href="media/icons/favicon.png">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ── SERVIÇOS ───────────────────────────── */
-    #servicos {
-      background: var(--deep);
-      padding: 6rem 8vw 9rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #servicos::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    .serv-header {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: end;
-      margin-bottom: 4.5rem;
-    }
-
-    .serv-header .eyebrow {
-      color: var(--yellow);
-    }
-
-    .serv-header .sec-title {
-      color: var(--white);
-    }
-
-    .serv-header>p {
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: rgba(250, 250, 246, .42);
-      align-self: end;
-    }
-
-    .serv-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255, 255, 255, .04);
-    }
-
-    .serv-card {
-      background: var(--deep);
-      padding: 2.8rem 2.2rem;
-      position: relative;
-      overflow: hidden;
-      transition: background .35s, transform .35s;
-      border: 1px solid rgba(118, 146, 125, .1);
-    }
-
-    .serv-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--yellow), transparent);
-      transform: scaleX(0);
-      transition: transform .5s ease;
-    }
-
-    .serv-card:hover {
-      background: rgba(118, 146, 125, .12);
-      border-color: rgba(118, 146, 125, .35);
-      transform: translateY(-3px);
-    }
-
-    /* Link no card de ebooks */
-    a.serv-card {
-      display: block;
-    }
-
-    .serv-card:hover::after {
-      transform: scaleX(1);
-    }
-
-    .serv-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 400;
-      color: rgba(247, 222, 142, .08);
-      line-height: 1;
-      margin-bottom: 1.2rem;
-    }
-
-    .serv-ico {
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(247, 222, 142, .25);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.4rem;
-      font-size: 1.1rem;
-      transition: border-color .35s, background .35s;
-    }
-
-    .serv-card:hover .serv-ico {
-      border-color: var(--yellow);
-      background: rgba(247, 222, 142, .1);
-    }
-
-    .serv-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: .7rem;
-      line-height: 1.35;
-    }
-
-    .serv-card p {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: rgba(250, 250, 246, .38);
-    }
-
-    .serv-arr {
-      position: absolute;
-      bottom: 1.8rem;
-      right: 1.8rem;
-      color: var(--yellow);
-      font-size: 1rem;
-      opacity: 0;
-      transform: translate(-6px, 6px);
-      transition: all .3s;
-    }
-
-    .serv-card:hover .serv-arr {
-      opacity: 1;
-      transform: translate(0, 0);
-    }
-
-    /* ── DEPOIMENTOS ────────────────────────── */
-    #depoimentos {
-      padding: 9rem 8vw;
-      background: var(--cream);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #depoimentos::before {
-      content: '"';
-      position: absolute;
-      right: 5vw;
-      top: 4rem;
-      font-family: 'Playfair Display', serif;
-      font-size: 20rem;
-      font-weight: 700;
-      color: rgba(118, 146, 125, .05);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .dep-head {
-      text-align: center;
-      margin-bottom: 4.5rem;
-    }
-
-    .dep-track {
-      display: flex;
-      gap: 1.5rem;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      padding-bottom: .5rem;
-    }
-
-    .dep-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .dep-card {
-      flex: 0 0 450px;
-      scroll-snap-align: start;
-      background: var(--white);
-      border: 1px solid rgba(118, 146, 125, .12);
-      padding: 2.4rem;
-      border-radius: 3px;
-      position: relative;
-    }
-
-    .dep-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      right: 2rem;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--sage-lt), transparent);
-    }
-
-    .dep-stars {
-      color: var(--sage);
-      font-size: .85rem;
-      margin-bottom: 1.2rem;
-      letter-spacing: .1em;
-    }
-
-    .dep-card blockquote {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      font-style: italic;
-      line-height: 1.8;
-      color: var(--text);
-      margin-bottom: 1.8rem;
-    }
-
-    .dep-author {
-      display: flex;
-      align-items: center;
-      gap: .9rem;
-    }
-
-    .dep-av {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--sage);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--yellow);
-      flex-shrink: 0;
-    }
-
-    .dep-name {
-      font-size: .95rem;
-      font-weight: 400;
-      color: var(--deep);
-    }
-
-    .dep-role {
-      font-size: .8rem;
-      font-weight: 300;
-      letter-spacing: .08em;
-      color: var(--muted);
-      margin-top: .15rem;
-    }
-
-    .dep-nav {
-      display: flex;
-      gap: .8rem;
-      justify-content: center;
-      margin-top: 3rem;
-    }
-
-    .dep-nav button {
-      width: 42px;
-      height: 42px;
-      border: 1.5px solid rgba(118, 146, 125, .3);
-      background: transparent;
-      color: var(--sage);
-      font-size: .95rem;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: all .3s;
-    }
-
-    .dep-nav button:hover {
-      background: var(--sage);
-      color: var(--cream);
-      border-color: var(--sage);
-    }
-
-    /* ── CTA STRIP ──────────────────────────── */
-    .cta-strip {
-      background: var(--sage);
-      padding: 5rem 8vw;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .cta-strip h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3vw, 2.6rem);
-      font-weight: 400;
-      color: var(--cream);
-      line-height: 1.2;
-    }
-
-    .cta-strip h2 em {
-      font-style: italic;
-      color: var(--yellow);
-    }
-
-    /* ── GRATUITOS ───────────────────────────── */
-    #gratuitos {
-      padding: 6rem 8vw 9rem;
-      background: var(--cream);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #gratuitos::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .grat-head {
-      text-align: center;
-      margin-bottom: 4.5rem;
-    }
-
-    .grat-head .eyebrow {
-      color: var(--sage);
-    }
-
-    .grat-head .sec-title {
-      color: var(--deep);
-    }
-
-    .grat-head>p {
-      font-size: 1.15rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--muted);
-      max-width: 580px;
-      margin: 0 auto;
-    }
-
-    /* Grid de materiais */
-    .grat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .grat-card {
-      background: var(--white);
-      border: 1px solid rgba(118, 146, 125, .15);
-      border-radius: 4px;
-      padding: 2.4rem 2rem;
-      text-align: center;
-      transition: all .35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .grat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--sage), transparent);
-      transform: scaleX(0);
-      transition: transform .4s ease;
-    }
-
-    .grat-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(59, 73, 63, .12);
-      border-color: rgba(118, 146, 125, .35);
-    }
-
-    .grat-card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .grat-ico {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--ivory);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.6rem;
-      font-size: 1.8rem;
-      transition: all .35s ease;
-    }
-
-    .grat-card:hover .grat-ico {
-      background: var(--sage);
-      color: var(--cream);
-      transform: scale(1.1);
-    }
-
-    .grat-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 500;
-      color: var(--deep);
-      margin-bottom: .8rem;
-      line-height: 1.35;
-    }
-
-    .grat-card p {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.8;
-      color: var(--muted);
-      margin-bottom: 1.6rem;
-    }
-
-    .grat-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      font-size: .72rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--sage);
-      text-decoration: none;
-      padding: .7rem 1.6rem;
-      border: 1.5px solid var(--sage);
-      border-radius: 2px;
-      transition: all .3s ease;
-    }
-
-    .grat-btn:hover {
-      background: var(--sage);
-      color: var(--cream);
-    }
-
-    .grat-btn::after {
-      content: '↓';
-      font-size: .9rem;
-      transition: transform .3s ease;
-    }
-
-    .grat-btn:hover::after {
-      transform: translateY(3px);
-    }
-
-    /* Badge "Gratuito" */
-    .grat-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--yellow);
-      padding: .25rem .6rem;
-      border-radius: 100px;
-      font-size: .58rem;
-      font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--deep);
-    }
-
-    /* ── RESPONSIVE ─────────────────────────── */
-    @media (max-width: 960px) {
-      .serv-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .serv-header {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-strip {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .dep-card {
-        flex: 0 0 85vw;
-      }
-
-      .grat-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-
-
-    @media (prefers-color-scheme: light) {
-      #servicos {
-        background: var(--ivory) !important;
-      }
-
-      #servicos::before {
-        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .06) 0%, transparent 70%) !important;
-      }
-
-      .serv-header .sec-title {
-        color: var(--deep) !important;
-      }
-
-      .serv-header .eyebrow {
-        color: var(--sage-md) !important;
-      }
-
-      .serv-header>p {
-        color: var(--muted) !important;
-      }
-
-      .serv-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .22) !important;
-        box-shadow: 0 2px 16px rgba(59, 73, 63, .07) !important;
-      }
-
-      .serv-card:hover {
-        background: var(--cream) !important;
-        border-color: rgba(118, 146, 125, .45) !important;
-        transform: translateY(-3px);
-      }
-
-      .serv-card h3 {
-        color: var(--deep) !important;
-      }
-
-      .serv-card p {
-        color: var(--muted) !important;
-      }
-
-      .serv-num {
-        color: rgba(118, 146, 125, .16) !important;
-      }
-
-      .serv-ico {
-        border-color: rgba(118, 146, 125, .35) !important;
-      }
-
-      .serv-card:hover .serv-ico {
-        border-color: var(--sage) !important;
-        background: var(--ivory) !important;
-      }
-
-      .serv-arr {
-        color: var(--sage) !important;
-      }
-
-      #depoimentos {
-        background: var(--cream) !important;
-      }
-
-      #depoimentos::before {
-        color: rgba(118, 146, 125, .06) !important;
-      }
-
-      .dep-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .18) !important;
-      }
-
-      .dep-card::before {
-        background: linear-gradient(90deg, transparent, var(--sage-lt), transparent) !important;
-      }
-
-      .dep-card blockquote {
-        color: var(--text) !important;
-      }
-
-      .dep-stars {
-        color: var(--sage) !important;
-      }
-
-      .dep-name {
-        color: var(--deep) !important;
-      }
-
-      .dep-role {
-        color: var(--muted) !important;
-      }
-
-      .dep-av {
-        background: var(--sage) !important;
-        color: var(--yellow) !important;
-      }
-
-      .dep-nav button {
-        color: var(--sage-dk) !important;
-        border-color: rgba(77, 102, 85, .3) !important;
-      }
-
-      .dep-nav button:hover {
-        background: var(--sage) !important;
-        color: white !important;
-      }
-
-      .cta-strip {
-        background: var(--sage-dk) !important;
-      }
-
-      .cta-strip h2 {
-        color: #fff !important;
-      }
-
-      .cta-strip h2 em {
-        color: var(--yellow) !important;
-      }
-
-      /* Gratuitos - tema claro */
-      #gratuitos {
-        background: var(--cream) !important;
-      }
-
-      #gratuitos::before {
-        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .05) 0%, transparent 70%) !important;
-      }
-
-      .grat-head .eyebrow {
-        color: var(--sage-md) !important;
-      }
-
-      .grat-head .sec-title {
-        color: var(--deep) !important;
-      }
-
-      .grat-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .2) !important;
-      }
-
-      .grat-card:hover {
-        border-color: rgba(118, 146, 125, .4) !important;
-      }
-
-      .grat-ico {
-        background: var(--ivory) !important;
-      }
-
-      .grat-card:hover .grat-ico {
-        background: var(--sage) !important;
-        color: #fff !important;
-      }
-
-      .grat-btn {
-        color: var(--sage-dk) !important;
-        border-color: var(--sage-dk) !important;
-      }
-
-      .grat-btn:hover {
-        background: var(--sage) !important;
-        color: #fff !important;
-      }
-    }
-
-    @media (prefers-color-scheme: light) {
-      #servicos {
-        background: var(--ivory) !important;
-      }
-
-      #servicos::before {
-        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .06) 0%, transparent 70%) !important;
-      }
-
-      .serv-header .sec-title {
-        color: var(--deep) !important;
-      }
-
-      .serv-header .eyebrow {
-        color: var(--sage-md) !important;
-      }
-
-      .serv-header>p {
-        color: var(--muted) !important;
-      }
-
-      .serv-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .22) !important;
-        box-shadow: 0 2px 16px rgba(59, 73, 63, .07) !important;
-      }
-
-      .serv-card:hover {
-        background: var(--cream) !important;
-        border-color: rgba(118, 146, 125, .45) !important;
-        transform: translateY(-3px);
-      }
-
-      .serv-card h3 {
-        color: var(--deep) !important;
-      }
-
-      .serv-card p {
-        color: var(--muted) !important;
-      }
-
-      .serv-num {
-        color: rgba(118, 146, 125, .16) !important;
-      }
-
-      .serv-ico {
-        border-color: rgba(118, 146, 125, .35) !important;
-      }
-
-      .serv-card:hover .serv-ico {
-        border-color: var(--sage) !important;
-        background: var(--ivory) !important;
-      }
-
-      .serv-arr {
-        color: var(--sage) !important;
-      }
-
-      #depoimentos {
-        background: var(--cream) !important;
-      }
-
-      #depoimentos::before {
-        color: rgba(118, 146, 125, .06) !important;
-      }
-
-      .dep-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .18) !important;
-      }
-
-      .dep-card::before {
-        background: linear-gradient(90deg, transparent, var(--sage-lt), transparent) !important;
-      }
-
-      .dep-card blockquote {
-        color: var(--text) !important;
-      }
-
-      .dep-stars {
-        color: var(--sage) !important;
-      }
-
-      .dep-name {
-        color: var(--deep) !important;
-      }
-
-      .dep-role {
-        color: var(--muted) !important;
-      }
-
-      .dep-av {
-        background: var(--sage) !important;
-        color: var(--yellow) !important;
-      }
-
-      .dep-nav button {
-        color: var(--sage-dk) !important;
-        border-color: rgba(77, 102, 85, .3) !important;
-      }
-
-      .dep-nav button:hover {
-        background: var(--sage) !important;
-        color: white !important;
-      }
-
-      .cta-strip {
-        background: var(--sage-dk) !important;
-      }
-
-      .cta-strip h2 {
-        color: #fff !important;
-      }
-
-      .cta-strip h2 em {
-        color: var(--yellow) !important;
-      }
-
-      /* Gratuitos - tema claro */
-      #gratuitos {
-        background: var(--cream) !important;
-      }
-
-      #gratuitos::before {
-        background: radial-gradient(ellipse 70% 60% at 60% 40%, rgba(118, 146, 125, .05) 0%, transparent 70%) !important;
-      }
-
-      .grat-head .eyebrow {
-        color: var(--sage-md) !important;
-      }
-
-      .grat-head .sec-title {
-        color: var(--deep) !important;
-      }
-
-      .grat-card {
-        background: var(--white) !important;
-        border-color: rgba(118, 146, 125, .2) !important;
-      }
-
-      .grat-card:hover {
-        border-color: rgba(118, 146, 125, .4) !important;
-      }
-
-      .grat-ico {
-        background: var(--ivory) !important;
-      }
-
-      .grat-card:hover .grat-ico {
-        background: var(--sage) !important;
-        color: #fff !important;
-      }
-
-      .grat-btn {
-        color: var(--sage-dk) !important;
-        border-color: var(--sage-dk) !important;
-      }
-
-      .grat-btn:hover {
-        background: var(--sage) !important;
-        color: #fff !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/servicos.css">
 </head>
 
 <body>
@@ -851,16 +49,16 @@
   </div>
 
   <div class="mob-menu" id="mobMenu">
-    <button class="mob-close" onclick="closeMob()">✕</button>
-    <a href="index.html" onclick="closeMob()">Home</a>
-    <a href="servicos.html" class="active" onclick="closeMob()">Serviços</a>
-    <a href="dicas.html" onclick="closeMob()">Dicas e Fotos</a>
-    <a href="contato.html" onclick="closeMob()">Contato</a>
+    <button class="mob-close" type="button" aria-label="Fechar menu">✕</button>
+    <a href="index.html">Home</a>
+    <a href="servicos.html" class="active">Serviços</a>
+    <a href="dicas.html">Dicas e Fotos</a>
+    <a href="contato.html">Contato</a>
   </div>
 
   <nav id="nav" class="solid">
     <a href="index.html" class="nav-logo">
-      <img src="media/icons/logo.png" alt="Única Organização" class="nav-logo-img">
+      <img src="media/icons/logo.png" alt="Única Organização" class="nav-logo-img" width="600" height="379" decoding="async">
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -869,89 +67,639 @@
       <li><a href="contato.html">Contato</a></li>
     </ul>
     <a href="contato.html" class="nav-cta">Agendar Consulta</a>
-    <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+    <div class="hamburger" role="button" tabindex="0" aria-label="Abrir menu"><span></span><span></span><span></span></div>
   </nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-content">
       <span class="eyebrow">O que fazemos</span>
-      <h1>Serviços que <em>transformam</em> espaços e carreiras</h1>
-      <p>Da formação de Domésticas Classe A à organização completa de ambientes — conheça tudo o que a Única Organização
-        pode fazer por você.</p>
+      <h1>Organização, formação e <em>cuidado com a casa</em></h1>
+      <p>Pacotes presenciais que reorganizam ambientes, cursos profissionais para quem cuida do lar e materiais gratuitos pra começar agora — tudo com método e propósito.</p>
+      <div class="page-hero-quick">
+        <a href="#pacotes">Pacotes</a>
+        <span aria-hidden="true">·</span>
+        <a href="#cursos">Cursos</a>
+        <span aria-hidden="true">·</span>
+        <a href="#depoimentos">Depoimentos</a>
+        <span aria-hidden="true">·</span>
+        <a href="#gratuitos">Gratuitos</a>
+      </div>
     </div>
   </div>
 
-  <!-- SERVIÇOS -->
+  <!-- SERVIÇOS — Índice visual das áreas do site -->
   <section id="servicos">
     <div class="serv-header rv">
       <div>
-        <span class="eyebrow">Nossos serviços</span>
-        <h2 class="sec-title">Escolha o serviço <em>ideal</em> para você</h2>
+        <span class="eyebrow">O que oferecemos</span>
+        <h2 class="sec-title">Tudo o que a Única faz por <em>você</em></h2>
       </div>
-      <p>Soluções completas para quem busca organização, capacitação e bem-estar — em casa, no trabalho e na carreira.
-      </p>
+      <p>Pacotes presenciais de organização, cursos profissionais, workshops online e materiais gratuitos — escolha o que faz mais sentido para o seu momento.</p>
     </div>
     <div class="serv-grid">
-      <div class="serv-card rv">
+
+      <a href="#pacotes" class="serv-card rv">
         <div class="serv-num">01</div>
-        <div class="serv-ico">🏠</div>
-        <h3>Treinamento Personal Organizer</h3>
-        <p>Formação completa para auxiliares domésticas e diaristas que desejam atuar como personal organizers
-          certificadas — Domésticas Classe A.</p>
-        <span class="serv-arr">→</span>
-      </div>
-      <div class="serv-card rv">
-        <div class="serv-num">02</div>
-        <div class="serv-ico">📦</div>
-        <h3>Pós-Mudança</h3>
-        <p>Organização completa após mudanças residenciais ou comerciais — do destralamento à arrumação final, com
-          método e agilidade.</p>
-        <span class="serv-arr">→</span>
-      </div>
-      <div class="serv-card rv">
-        <div class="serv-num">03</div>
-        <div class="serv-ico">✨</div>
-        <h3>Consultoria de Organização</h3>
-        <p>Análise e reestruturação de ambientes residenciais e comerciais com metodologia própria, foco em
-          funcionalidade e harmonia.</p>
-        <span class="serv-arr">→</span>
-      </div>
-      <a href="#gratuitos" class="serv-card rv" style="text-decoration: none;">
-        <div class="serv-num">04</div>
-        <div class="serv-ico">📚</div>
-        <h3>Ebooks & Materiais Digitais</h3>
-        <p>Guias práticos, checklists e manuais para estudo e aperfeiçoamento profissional contínuo — conteúdo exclusivo
-          da Luana Coelho.</p>
+        <div class="serv-ico">🏡</div>
+        <h3>Pacotes de Organização</h3>
+        <p>Seis pacotes presenciais e online — de quartos baby a cronograma de limpeza completo da casa.</p>
+        <span class="serv-meta">6 pacotes · de R$ 369 a R$ 1.419</span>
         <span class="serv-arr">→</span>
       </a>
-      <div class="serv-card rv">
+
+      <a href="#cur-gestao-estrategica" class="serv-card rv">
+        <div class="serv-num">02</div>
+        <div class="serv-ico">🏢</div>
+        <h3>Curso Empresarial</h3>
+        <p>Gestão Estratégica da Limpeza e Organização — 5 módulos com certificado premium e suporte WhatsApp para sua equipe.</p>
+        <span class="serv-meta">Presencial · 20h · CNPJ e CPF</span>
+        <span class="serv-arr">→</span>
+      </a>
+
+      <a href="#cur-domestica-classe-a" class="serv-card rv">
+        <div class="serv-num">03</div>
+        <div class="serv-ico">👩‍🍳</div>
+        <h3>Doméstica Classe A</h3>
+        <p>Treinamento para donas de casa e auxiliares domésticas: limpeza moderna, dobras, posturas e rotina prática.</p>
+        <span class="serv-meta">4 módulos presenciais · R$ 130 cada</span>
+        <span class="serv-arr">→</span>
+      </a>
+
+      <a href="#cur-online" class="serv-card rv">
+        <div class="serv-num">04</div>
+        <div class="serv-ico">💻</div>
+        <h3>Cursos Online</h3>
+        <p>Aprenda no seu ritmo: Quarto Baby Organizado, Agenda Doméstica e Guia Rápido da Auxiliar. Acesso por 2 anos.</p>
+        <span class="serv-meta">3 cursos · a partir de R$ 79,90</span>
+        <span class="serv-arr">→</span>
+      </a>
+
+      <a href="#cur-produtos" class="serv-card rv">
         <div class="serv-num">05</div>
-        <div class="serv-ico">💼</div>
-        <h3>Mentoria Profissional</h3>
-        <p>Acompanhamento individualizado para quem quer se estabelecer como personal organizer: precificação, portfólio
-          e captação de clientes.</p>
+        <div class="serv-ico">📚</div>
+        <h3>E-book e Produtos</h3>
+        <p>E-book Limpeza Doméstica Descomplicada e o Pacote Organizadores Baby com colmeias e etiquetas selecionadas pela Luana.</p>
+        <span class="serv-meta">a partir de R$ 19,90</span>
         <span class="serv-arr">→</span>
-      </div>
-      <div class="serv-card rv">
+      </a>
+
+      <a href="#gratuitos" class="serv-card rv">
         <div class="serv-num">06</div>
-        <div class="serv-ico">🎤</div>
-        <h3>Palestras & Workshops</h3>
-        <p>Eventos corporativos e comunitários sobre organização, produtividade e desenvolvimento profissional feminino.
-          Presencial e online.</p>
+        <div class="serv-ico">🎁</div>
+        <h3>Materiais Gratuitos</h3>
+        <p>Checklist de viagem, lista de compras mensal e checklist para limpeza — para baixar sem custo.</p>
+        <span class="serv-meta">3 materiais · download gratuito</span>
         <span class="serv-arr">→</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PACOTES DE SERVIÇOS (com preço fixo) -->
+  <section id="pacotes">
+    <div class="pac-header rv">
+      <div>
+        <span class="eyebrow">Pacotes de organização</span>
+        <h2 class="sec-title">Para cada lar, um <em>caminho</em></h2>
+      </div>
+      <p>Pacotes prontos com escopo, duração e investimento definidos. Escolha o que mais se aproxima da sua realidade — e fale com a Luana para personalizar.</p>
+    </div>
+
+    <div class="pac-grid">
+
+      <!-- 1. O Bom fica Melhor -->
+      <article class="pac-card rv">
+        <div class="pac-top">
+          <div class="pac-ico">🌿</div>
+          <span class="pac-tag">Acervo enxuto</span>
+        </div>
+        <h3 class="pac-title">O Bom fica <em>Melhor</em></h3>
+        <p class="pac-desc">Para ambientes que já têm certa ordem mas precisam de toque profissional. Ideal para cozinhas, despensas, quartos baby e varandas gourmet.</p>
+        <ul class="pac-incl">
+          <li>Descarte, categorização e organização guiada</li>
+          <li>Kit de gabarito de dobras + separadores de cabide</li>
+          <li>Até 20 sacos de organza (se for em quarto)</li>
+          <li>Etiquetas indicadoras (manuscritas e impressas)</li>
+          <li>30 dias de assistência virtual + 1 visita de retorno</li>
+          <li>Capacitação de quem manterá o ambiente</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <span class="pac-from">A partir de</span>
+            <strong>R$ 759</strong>
+            <span class="pac-per">por ambiente</span>
+          </div>
+          <span class="pac-dur">Até 7h de execução</span>
+        </div>
+        <a class="pac-btn" data-pacote="O Bom fica Melhor" href="#">Quero este pacote →</a>
+      </article>
+
+      <!-- 2. Do Caos à Ordem -->
+      <article class="pac-card pac-featured rv">
+        <div class="pac-top">
+          <div class="pac-ico">🌀</div>
+          <span class="pac-tag pac-tag-feat">Mais transformador</span>
+        </div>
+        <h3 class="pac-title">Do Caos à <em>Ordem</em></h3>
+        <p class="pac-desc">Para cômodos maiores e com grande volume de itens — quartos femininos, cozinhas completas, áreas de serviço. Replaneja e redistribui até alcançar a organização ideal.</p>
+        <ul class="pac-incl">
+          <li>Descarte, categorização e organização guiada</li>
+          <li>Kit de gabarito de dobras + separadores de cabide</li>
+          <li>Até 20 sacos de organza (se for em quarto)</li>
+          <li>Etiquetas indicadoras (manuscritas e impressas)</li>
+          <li>30 dias de assistência virtual + 1 visita de retorno</li>
+          <li>Capacitação de quem manterá o ambiente</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <span class="pac-from">A partir de</span>
+            <strong>R$ 1.239</strong>
+            <span class="pac-per">por ambiente</span>
+          </div>
+          <span class="pac-dur">Até 13h de execução</span>
+        </div>
+        <a class="pac-btn" data-pacote="Do Caos à Ordem" href="#">Quero este pacote →</a>
+      </article>
+
+      <!-- 3. Você Consegue -->
+      <article class="pac-card rv">
+        <div class="pac-top">
+          <div class="pac-ico">💻</div>
+          <span class="pac-tag">Online · faça você</span>
+        </div>
+        <h3 class="pac-title">Você <em>Consegue</em></h3>
+        <p class="pac-desc">Aula particular online onde você põe a mão na massa e a Luana te ensina, em tempo real, as técnicas ideais e personalizadas para o seu ambiente.</p>
+        <ul class="pac-incl">
+          <li>Orientação completa de triagem, descarte e dobras</li>
+          <li>Setorização e identificação dos espaços</li>
+          <li>Sugestão de produtos organizadores</li>
+          <li>20% de desconto no kit de gabarito (frete à parte)</li>
+          <li>10 dias de assistência virtual após a aula</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <strong>R$ 369</strong>
+            <span class="pac-per">por ambiente</span>
+          </div>
+          <span class="pac-dur">Até 2h de encontros</span>
+        </div>
+        <a class="pac-btn" data-pacote="Você Consegue" href="#">Quero este pacote →</a>
+      </article>
+
+      <!-- 4. Planejado para Você -->
+      <article class="pac-card rv">
+        <div class="pac-top">
+          <div class="pac-ico">📐</div>
+          <span class="pac-tag">Para móveis sob medida</span>
+        </div>
+        <h3 class="pac-title">Planejado para <em>Você</em></h3>
+        <p class="pac-desc">Para quem está fazendo marcenaria planejada e quer que cada nicho, gaveta e prateleira seja realmente útil para a rotina da família — não só bonito.</p>
+        <ul class="pac-incl">
+          <li>Visita para conhecer e medir os armários</li>
+          <li>Levantamento do acervo do ambiente</li>
+          <li>Reunião com seu arquiteto, designer ou projetista</li>
+          <li>Análise e sugestão das medidas internas</li>
+          <li>Entrega virtual das medidas ideais ao projetista</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <strong>R$ 529</strong>
+            <span class="pac-per">por ambiente</span>
+          </div>
+          <span class="pac-dur">Até 2h em encontros</span>
+        </div>
+        <a class="pac-btn" data-pacote="Planejado para Você" href="#">Quero este pacote →</a>
+      </article>
+
+      <!-- 5. Mantendo a Paz -->
+      <article class="pac-card rv">
+        <div class="pac-top">
+          <div class="pac-ico">🔄</div>
+          <span class="pac-tag">Já-clientes</span>
+        </div>
+        <h3 class="pac-title">Mantendo a <em>Paz</em></h3>
+        <p class="pac-desc">Exclusivo para quem já recebeu A Paz da Organização. Revisita o que foi feito, ajusta à nova rotina e recapacita a equipe da casa para manter tudo no lugar.</p>
+        <ul class="pac-incl">
+          <li>Conversa prévia via WhatsApp com a cliente</li>
+          <li>Revisão presencial com a auxiliar doméstica</li>
+          <li>Ajustes para acomodar itens novos</li>
+          <li>Revisão de dobras e disposição dos itens</li>
+          <li>Certificado de "Mantenedora da Paz da Organização"</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <strong>R$ 419</strong>
+            <span class="pac-per">visita única</span>
+          </div>
+          <span class="pac-dur">Até 3h na residência</span>
+        </div>
+        <a class="pac-btn" data-pacote="Mantendo a Paz" href="#">Quero este pacote →</a>
+      </article>
+
+      <!-- 6. Cronograma da Paz -->
+      <article class="pac-card rv">
+        <div class="pac-top">
+          <div class="pac-ico">📅</div>
+          <span class="pac-tag">Rotina de limpeza</span>
+        </div>
+        <h3 class="pac-title">Cronograma da <em>Paz</em></h3>
+        <p class="pac-desc">Um cronograma semanal feito sob medida para sua casa e equipe. Acaba a dúvida de o que limpar, quando, e por quem.</p>
+        <ul class="pac-incl">
+          <li>Reconhecimento dos cômodos da casa</li>
+          <li>Levantamento e frequência das tarefas por ambiente</li>
+          <li>Cronograma personalizado pronto para uso</li>
+          <li>Capacitação de até 2 colaboradores da casa</li>
+          <li>30 dias de assistência virtual para ajustes</li>
+        </ul>
+        <div class="pac-foot">
+          <div class="pac-price">
+            <strong>R$ 1.419</strong>
+            <span class="pac-per">cronograma completo</span>
+          </div>
+          <span class="pac-dur">Até 4h na residência</span>
+        </div>
+        <a class="pac-btn" data-pacote="Cronograma da Paz" href="#">Quero este pacote →</a>
+      </article>
+
+    </div>
+
+    <p class="pac-note rv">
+      * Valores válidos para Palmas/TO. Cidades vizinhas e regiões fora podem ter ajuste de deslocamento.
+    </p>
+  </section>
+
+  <!-- CURSOS E TREINAMENTOS -->
+  <section id="cursos">
+    <div class="cur-header rv">
+      <div>
+        <span class="eyebrow">Cursos e treinamentos</span>
+        <h2 class="sec-title">Aprenda com a <em>Luana</em></h2>
+      </div>
+      <p>Programas presenciais, módulos online e materiais que transformam a forma como você organiza, limpa e gere a rotina da sua casa ou da sua equipe.</p>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCO 1: Gestão Estratégica (curso corporativo)
+         ════════════════════════════════════════════════════ -->
+    <div class="cur-bloco rv" id="cur-gestao-estrategica">
+      <header class="cur-bloco-head">
+        <span class="cur-bloco-tag">Curso presencial · 20h</span>
+        <h3 class="cur-bloco-title">Gestão Estratégica da <em>Limpeza e Organização</em></h3>
+        <p class="cur-bloco-sub">Mais que limpeza: excelência, acolhimento e propósito em cada detalhe. Treinamento prático e humanizado para profissionais de residências e instituições.</p>
+      </header>
+
+      <div class="cur-modulos">
+        <h4>Os 5 módulos do programa</h4>
+        <ol class="cur-mod-list">
+          <li><strong>I — Autoconhecimento</strong>, Relacionamento e Qualidade de Atendimento</li>
+          <li><strong>II — Limpeza Moderna</strong> e Organização de Ambientes</li>
+          <li><strong>III — Planejamento</strong> e Rotina de Limpeza</li>
+          <li><strong>IV — Governança</strong> e Acolhimento na Instituição</li>
+          <li><strong>V — Bastidores</strong> e Organização de Eventos</li>
+        </ol>
+        <p class="cur-mod-foot">5 módulos práticos · 4h cada · 20h totais · material exclusivo · certificado</p>
+      </div>
+
+      <!-- Duas tabelas de preço lado a lado -->
+      <div class="cur-tabs-precos">
+
+        <!-- CNPJ -->
+        <div class="cur-tab-preco">
+          <div class="cur-tab-head">
+            <span class="cur-tab-eyebrow">Leve mais, pague menos</span>
+            <h4>CNPJ <span>· Empresas e instituições</span></h4>
+          </div>
+          <table class="cur-preco-table">
+            <thead><tr><th>Módulos</th><th>Valor</th><th>Desconto</th></tr></thead>
+            <tbody>
+              <tr><td>1 módulo</td><td>R$ 197</td><td>—</td></tr>
+              <tr><td>2 módulos</td><td>R$ 374</td><td class="cur-off">5% OFF</td></tr>
+              <tr><td>3 módulos</td><td>R$ 537</td><td class="cur-off">9% OFF</td></tr>
+              <tr><td>4 módulos</td><td>R$ 697</td><td class="cur-off">12% OFF</td></tr>
+              <tr class="cur-row-feat"><td>5 módulos <em>(curso completo)</em></td><td>R$ 837</td><td class="cur-off cur-off-feat">15% OFF</td></tr>
+            </tbody>
+          </table>
+          <details class="cur-mat">
+            <summary>Material de apoio e diferenciais</summary>
+            <ul>
+              <li>Cronogramas de limpeza institucional</li>
+              <li>Checklists por departamento</li>
+              <li>Lista MODERNA de produtos e utensílios</li>
+              <li>Tabela de diluição de produtos</li>
+              <li>Apostila detalhada para limpeza de superfícies</li>
+              <li>Gabarito de mesa posta</li>
+              <li>Checklist coffee break institucional</li>
+              <li>Checklist de apoio e limpeza em eventos</li>
+              <li>Programa "Reconhecimento Classe A em Ação"</li>
+              <li>Suporte WhatsApp (30 dias)</li>
+              <li>Relatório executivo para RH</li>
+              <li>Certificado premium</li>
+            </ul>
+          </details>
+          <!-- ⬇️ TROQUE href="#" pelo link real (ex: Hotmart, Eduzz, etc) ⬇️ -->
+          <a class="cur-btn" href="#" data-curso="Gestão Estratégica — CNPJ (Empresarial)">Garanta sua vaga aqui →</a>
+        </div>
+
+        <!-- CPF -->
+        <div class="cur-tab-preco">
+          <div class="cur-tab-head">
+            <span class="cur-tab-eyebrow">Leve mais, pague menos</span>
+            <h4>CPF <span>· Domésticas e donas de casa</span></h4>
+          </div>
+          <table class="cur-preco-table">
+            <thead><tr><th>Módulos</th><th>Valor</th><th>Desconto</th></tr></thead>
+            <tbody>
+              <tr><td>1 módulo</td><td>R$ 147</td><td>—</td></tr>
+              <tr><td>2 módulos</td><td>R$ 279</td><td class="cur-off">5% OFF</td></tr>
+              <tr><td>3 módulos</td><td>R$ 397</td><td class="cur-off">10% OFF</td></tr>
+              <tr><td>4 módulos</td><td>R$ 497</td><td class="cur-off">15% OFF</td></tr>
+              <tr class="cur-row-feat"><td>5 módulos <em>(curso completo)</em></td><td>R$ 617</td><td class="cur-off cur-off-feat">16% OFF</td></tr>
+            </tbody>
+          </table>
+          <details class="cur-mat">
+            <summary>Material de apoio e diferenciais</summary>
+            <ul>
+              <li>Cronogramas de limpeza residencial</li>
+              <li>Checklists por ambiente</li>
+              <li>Lista MODERNA de produtos e utensílios</li>
+              <li>Tabela de diluição de produtos</li>
+              <li>Apostila detalhada para limpeza de superfícies</li>
+              <li>Gabarito de mesa posta</li>
+              <li>Checklist "Receber em casa"</li>
+              <li>Programa "Reconhecimento Classe A em Ação"</li>
+            </ul>
+          </details>
+          <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+          <a class="cur-btn" href="#" data-curso="Gestão Estratégica — CPF (Domésticas)">Garanta sua vaga aqui →</a>
+        </div>
+
       </div>
     </div>
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCO 2: Doméstica Classe A — módulos presenciais
+         ════════════════════════════════════════════════════ -->
+    <div class="cur-bloco rv" id="cur-domestica-classe-a">
+      <header class="cur-bloco-head">
+        <span class="cur-bloco-tag">Treinamento · módulos presenciais</span>
+        <h3 class="cur-bloco-title">Doméstica <em>Classe A</em></h3>
+        <p class="cur-bloco-sub">Programa voltado para donas de casa e auxiliares domésticas (mensalistas ou diaristas) que buscam otimizar tempo, ganhar espaço, economizar dinheiro e viver a Paz da Organização. Cada módulo é independente — escolha por onde começar.</p>
+      </header>
+
+      <div class="cur-grid cur-grid-4">
+
+        <!-- Módulo: Limpeza Moderna Descomplicada -->
+        <article class="cur-card">
+          <div class="cur-card-top">
+            <span class="cur-card-num">01</span>
+            <span class="cur-card-mod">Presencial</span>
+          </div>
+          <h4 class="cur-card-title">Limpeza Moderna <em>Descomplicada</em></h4>
+          <p class="cur-card-desc">Ganhe tempo e economize dinheiro aplicando técnicas modernas na limpeza da sua casa.</p>
+          <ul class="cur-card-list">
+            <li>Higienização, limpeza, desinfecção e sanitização</li>
+            <li>Ciclo de Sinner, tipos de sujeira e pH</li>
+            <li>Utensílios modernos e uso correto dos mops</li>
+            <li>Protocolos por superfície (piso, vidro, metais, MDF, madeira, laca)</li>
+            <li>Livro "Limpeza Doméstica Descomplicada"</li>
+            <li>Etiquetas vinílicas + certificado impresso</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 130</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Doméstica Classe A — Limpeza Moderna Descomplicada">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Módulo: Dobras Essenciais -->
+        <article class="cur-card">
+          <div class="cur-card-top">
+            <span class="cur-card-num">02</span>
+            <span class="cur-card-mod">Presencial</span>
+          </div>
+          <h4 class="cur-card-title">Dobras <em>Essenciais</em></h4>
+          <p class="cur-card-desc">Mais de 15 dobras práticas para visualizar melhor as roupas, padronizar e economizar tempo.</p>
+          <ul class="cur-card-list">
+            <li>Roupas íntimas, de treino, de praia e de baixo</li>
+            <li>Pijamas e panos de prato</li>
+            <li>Toalhas de banho e toalhas de mesa (inclusive redondas)</li>
+            <li>Lençóis (inclusive com elástico)</li>
+            <li>Certificado impresso · vagas limitadas</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 130</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Doméstica Classe A — Dobras Essenciais">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Módulo: O Básico para ser TOP -->
+        <article class="cur-card">
+          <div class="cur-card-top">
+            <span class="cur-card-num">03</span>
+            <span class="cur-card-mod">Presencial</span>
+          </div>
+          <h4 class="cur-card-title">O Básico para ser <em>TOP</em></h4>
+          <p class="cur-card-desc">Para a auxiliar doméstica que deseja ser mais eficiente, organizada, produtiva e feliz nos relacionamentos.</p>
+          <ul class="cur-card-list">
+            <li>Importância do serviço doméstico</li>
+            <li>Funções, direitos e deveres</li>
+            <li>Sigilo, discrição e cuidado com a imagem pessoal</li>
+            <li>Noções de mesa posta e recepção</li>
+            <li>Bônus: Quadro de Combinados, cardápio semanal, lista de compras</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 130</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Doméstica Classe A — O Básico para ser TOP">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Módulo: Agenda Doméstica Prática -->
+        <article class="cur-card">
+          <div class="cur-card-top">
+            <span class="cur-card-num">04</span>
+            <span class="cur-card-mod">Presencial</span>
+          </div>
+          <h4 class="cur-card-title">Agenda Doméstica <em>Prática</em></h4>
+          <p class="cur-card-desc">Como vencer os obstáculos e descomplicar a agenda da casa — para você ou sua equipe.</p>
+          <ul class="cur-card-list">
+            <li>Os dois tipos de cômodos e seus tipos de limpeza</li>
+            <li>Tarefas por cômodo e frequência prática</li>
+            <li>Modelo de rotina semanal + arquivo editável</li>
+            <li>Checklists: diário, semanal, quinzenal, mensal, trimestral, semestral</li>
+            <li>Acompanhamento em grupo de WhatsApp (30 dias)</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 130</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Doméstica Classe A — Agenda Doméstica Prática">Compre aqui</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCO 3: Cursos online
+         ════════════════════════════════════════════════════ -->
+    <div class="cur-bloco rv" id="cur-online">
+      <header class="cur-bloco-head">
+        <span class="cur-bloco-tag">100% online · PDFs e videoaulas</span>
+        <h3 class="cur-bloco-title">Cursos <em>Online</em></h3>
+        <p class="cur-bloco-sub">Para quem prefere aprender no próprio ritmo, de qualquer lugar. Videoaulas gravadas, materiais em PDF e acesso prolongado.</p>
+      </header>
+
+      <div class="cur-grid cur-grid-3">
+
+        <!-- Workshop Quarto Baby -->
+        <article class="cur-card cur-card-online">
+          <div class="cur-card-top">
+            <span class="cur-card-num">👶</span>
+            <span class="cur-card-mod">Workshop online</span>
+          </div>
+          <h4 class="cur-card-title">Quarto Baby <em>Organizado</em></h4>
+          <p class="cur-card-desc">Descubra a maneira mais simples de dobrar e organizar roupas e acessórios do bebê. Inclui guia de medidas, checklist de enxoval e modelo de gabarito.</p>
+          <ul class="cur-card-list">
+            <li>Guia definitivo de medidas das roupas baby</li>
+            <li>Checklist do enxoval inteligente</li>
+            <li>Como categorizar e dobrar (com gabarito)</li>
+            <li>Organizadores: como e quais escolher</li>
+            <li>Sequência de organização por cores</li>
+            <li>PDFs + videoaulas</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 79,90</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Workshop Quarto Baby Organizado">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Agenda Doméstica Online -->
+        <article class="cur-card cur-card-online">
+          <div class="cur-card-top">
+            <span class="cur-card-num">📅</span>
+            <span class="cur-card-mod">Curso online</span>
+          </div>
+          <h4 class="cur-card-title">Agenda Doméstica <em>Prática</em></h4>
+          <p class="cur-card-desc">A versão online do módulo presencial. Com aulas gravadas disponíveis por 2 anos, você revisa o conteúdo quando precisar.</p>
+          <ul class="cur-card-list">
+            <li>Como vencer os obstáculos da rotina</li>
+            <li>Redescoberta dos cômodos e tarefas</li>
+            <li>Modelo de rotina + arquivo editável</li>
+            <li>Checklists: diário, semanal, mensal, trimestral, semestral</li>
+            <li>Manutenção, limpeza e faxina</li>
+            <li>100% online · acesso por 2 anos</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 97</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Agenda Doméstica Prática — Online">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Guia Rápido Auxiliar Doméstica -->
+        <article class="cur-card cur-card-online">
+          <div class="cur-card-top">
+            <span class="cur-card-num">📘</span>
+            <span class="cur-card-mod">Curso online</span>
+          </div>
+          <h4 class="cur-card-title">Guia Rápido da <em>Auxiliar Doméstica</em></h4>
+          <p class="cur-card-desc">Para quem deseja tornar a sua funcionária doméstica uma profissional mais eficiente, organizada e produtiva. Acesso por 2 anos.</p>
+          <ul class="cur-card-list">
+            <li>Importância do serviço doméstico</li>
+            <li>Funções, direitos e deveres</li>
+            <li>Sigilo, discrição e cuidado com imagem pessoal</li>
+            <li>Noções de mesa posta</li>
+            <li>Bônus: Quadro de Combinados, modelo mesa posta, cardápio, lista de compras</li>
+            <li>Certificado para a auxiliar doméstica</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 97</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Guia Rápido da Auxiliar Doméstica">Compre aqui</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════
+         BLOCO 4: Produtos (e-book + pacote físico)
+         ════════════════════════════════════════════════════ -->
+    <div class="cur-bloco rv" id="cur-produtos">
+      <header class="cur-bloco-head">
+        <span class="cur-bloco-tag">Produtos da loja</span>
+        <h3 class="cur-bloco-title">E-book e <em>Organizadores</em></h3>
+        <p class="cur-bloco-sub">Materiais digitais e produtos físicos que complementam o aprendizado e levam a organização para o seu dia a dia.</p>
+      </header>
+
+      <div class="cur-grid cur-grid-2">
+
+        <!-- E-book Limpeza -->
+        <article class="cur-card cur-card-prod">
+          <div class="cur-card-top">
+            <span class="cur-card-num">📕</span>
+            <span class="cur-card-mod">E-book digital</span>
+          </div>
+          <h4 class="cur-card-title">Limpeza Doméstica <em>Descomplicada</em></h4>
+          <p class="cur-card-desc">Compreenda os produtos e utensílios e torne sua limpeza mais prática.</p>
+          <ul class="cur-card-list">
+            <li><strong>Tipos de Limpeza</strong> — diferentes tipos de limpeza explicados</li>
+            <li><strong>Utensílios</strong> — melhor maneira de utilizar cada um</li>
+            <li><strong>Produtos</strong> — uso econômico e eficiente</li>
+            <li><strong>Cuidados Especiais</strong> — limpar cada superfície com segurança</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 19,90</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="E-book Limpeza Doméstica Descomplicada">Compre aqui</a>
+          </div>
+        </article>
+
+        <!-- Pacote Organizadores Baby -->
+        <article class="cur-card cur-card-prod">
+          <div class="cur-card-top">
+            <span class="cur-card-num">🎁</span>
+            <span class="cur-card-mod">Produto físico</span>
+          </div>
+          <h4 class="cur-card-title">Pacote Organizadores <em>Baby</em></h4>
+          <p class="cur-card-desc">Organize o quarto do seu baby com os organizadores físicos selecionados pela Luana.</p>
+          <ul class="cur-card-list">
+            <li>Checklist com enxoval inteligente (roupas, quarto, higiene, passeio, mala maternidade, decoração)</li>
+            <li>1 Colmeia Tamanho PP</li>
+            <li>3 Colmeias Tamanho P</li>
+            <li>23 Etiquetas adesivas para gavetas (meias, manga longa, manga curta, calças, etc)</li>
+            <li>Modelo de gabarito</li>
+            <li>Modelo de sequência de cores</li>
+          </ul>
+          <div class="cur-card-foot">
+            <strong class="cur-card-price">R$ 149</strong>
+            <!-- ⬇️ TROQUE href="#" pelo link real ⬇️ -->
+            <a class="cur-btn cur-btn-sm" href="#" data-curso="Pacote Organizadores Baby">Compre aqui</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="cur-help rv">
+      Tem dúvidas sobre qual escolher? <a href="https://wa.me/5563981117530?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20ajuda%20para%20escolher%20um%20curso." target="_blank" rel="noopener">Fale com a Luana no WhatsApp →</a>
+    </p>
   </section>
 
   <!-- DEPOIMENTOS -->
   <section id="depoimentos">
     <div class="dep-head">
       <span class="eyebrow">Depoimentos</span>
-      <h2 class="sec-title rv">O que dizem nossas <em>alunas</em></h2>
+      <h2 class="sec-title rv">Quem viveu, <em>aprovou</em></h2>
+      <p class="dep-intro rv">Histórias reais de alunas, clientes e funcionárias que passaram pelos cursos e pacotes da Única Organização.</p>
     </div>
     <div class="dep-track" id="depTrack">
+
       <div class="dep-card">
+        <a href="#cur-domestica-classe-a" class="dep-tag">Curso Doméstica Classe A</a>
         <div class="dep-stars">★★★★★</div>
         <blockquote>"O curso da Luana foi ótimo para me ensinar sobre organização em geral, incluindo arrumar camas, o
           guarda-roupa e dobrar toalhas e roupas íntimas. Antes, eu perdia muito tempo no serviço pesquisando na
@@ -962,25 +710,29 @@
           <div class="dep-av">R</div>
           <div>
             <div class="dep-name">Renata Nunes Machado</div>
-            <div class="dep-role">Funcionária do lar da Família Demiciano. · Palmas, TO</div>
+            <div class="dep-role">Funcionária do lar · Família Demiciano · Palmas, TO</div>
           </div>
         </div>
       </div>
+
       <div class="dep-card">
+        <a href="#cur-domestica-classe-a" class="dep-tag">Módulo Dobras Essenciais</a>
         <div class="dep-stars">★★★★★</div>
-        <blockquote>"Um curso excelentíssimo, agregou tanto na minha vida profissional quanto no pessoal, excelentes
-          técnicas pra quem não tem experiência em dobras é pra quem tem também, eu super recomendo eu e minha auxiliar
-          amamos gente, quem fizer não irá se arrepender, muito obrigado Luana Coelho Por repassar seus Conhecimentos a
-          nós!"</blockquote>
+        <blockquote>"Um curso excelentíssimo, agregou tanto na minha vida profissional quanto no pessoal. Excelentes
+          técnicas pra quem não tem experiência em dobras, e pra quem tem também. Eu super recomendo — eu e minha auxiliar
+          amamos, gente. Quem fizer não irá se arrepender. Muito obrigada Luana Coelho por repassar seus
+          conhecimentos a nós!"</blockquote>
         <div class="dep-author">
           <div class="dep-av">V</div>
           <div>
             <div class="dep-name">Vera Lucia</div>
-            <div class="dep-role">Aluna Personal Organizer · Palmas, TO</div>
+            <div class="dep-role">Aluna · Palmas, TO</div>
           </div>
         </div>
       </div>
+
       <div class="dep-card">
+        <a href="#cur-gestao-estrategica" class="dep-tag">Curso Empresarial</a>
         <div class="dep-stars">★★★★★</div>
         <blockquote>"Fiz o curso e simplesmente amei! Ele aperfeiçoou a forma como oriento minhas funcionárias e trouxe
           mais leveza e propósito ao nosso trabalho. Também já oportunizei que algumas delas fizessem cursos com a Luana
@@ -990,11 +742,13 @@
           <div class="dep-av">E</div>
           <div>
             <div class="dep-name">Elizabeth Luz</div>
-            <div class="dep-role">Cliente · Palmas, TO</div>
+            <div class="dep-role">Empregadora · Palmas, TO</div>
           </div>
         </div>
       </div>
+
       <div class="dep-card">
+        <a href="#cur-domestica-classe-a" class="dep-tag">Reconhecimento Classe A</a>
         <div class="dep-stars">★★★★★</div>
         <blockquote>"Luana, muito obrigada! É lindo ver como você valoriza quem trabalha em nossas casas. A Vanderleia
           se transformou, está mais feliz e trabalha com muito mais prazer. Incentivei bastante que elas fossem ao chá
@@ -1005,20 +759,21 @@
           <div class="dep-av">I</div>
           <div>
             <div class="dep-name">Ivana</div>
-            <div class="dep-role">Cliente · Palmas, TO</div>
+            <div class="dep-role">Empregadora · Palmas, TO</div>
           </div>
         </div>
       </div>
+
     </div>
     <div class="dep-nav">
-      <button onclick="scrollDep(-1)">←</button>
-      <button onclick="scrollDep(1)">→</button>
+      <button data-scroll-dep="-1" aria-label="Anterior">←</button>
+      <button data-scroll-dep="1" aria-label="Próximo">→</button>
     </div>
   </section>
 
   <!-- CTA -->
   <div class="cta-strip">
-    <h2>Pronta para dar o<br>próximo passo na sua <em>carreira?</em></h2>
+    <h2>Quer organizar a casa, formar sua equipe ou <em>aprender</em> com a Luana?</h2>
     <a href="contato.html" class="btn-y">Fale com a Luana →</a>
   </div>
 
@@ -1026,38 +781,40 @@
   <section id="gratuitos">
     <div class="grat-head rv">
       <span class="eyebrow">Materiais gratuitos</span>
-      <h2 class="sec-title">Conteúdos <em>gratuitos</em> para você</h2>
-      <p>Ferramentas práticas para organizar cada área da sua vida — do dia a dia àquela viagem especial.</p>
+      <h2 class="sec-title">Comece <em>agora</em> — sem pagar nada</h2>
+      <p>Três checklists prontos da Luana para você baixar e usar hoje. Um gostinho do método antes de conhecer os cursos completos.</p>
     </div>
 
     <div class="grat-grid">
       <!-- Checklist de Viagem -->
       <div class="grat-card rv">
-        <span class="grat-badge">Gratuito</span>
+        <span class="grat-badge">Grátis</span>
         <div class="grat-ico">✈️</div>
         <h3>Checklist de Viagem</h3>
-        <p>Tenha a certeza que não esqueceu de nada para a sua viagem. Lista completa com itens essenciais.</p>
-        <a href="https://sun.eduzz.com/999119" class="grat-btn">Adquirir agora</a>
+        <p>Não esqueça nada na próxima viagem. Lista completa com itens essenciais, organizada por categoria.</p>
+        <a href="https://sun.eduzz.com/999119" class="grat-btn" target="_blank" rel="noopener">Baixar grátis →</a>
       </div>
 
       <!-- Lista de Compras -->
       <div class="grat-card rv">
-        <span class="grat-badge">Gratuito</span>
+        <span class="grat-badge">Grátis</span>
         <div class="grat-ico">🛒</div>
         <h3>Lista de Compras</h3>
-        <p>Evite o esquecimento na hora das compras. Imprima a lista com a relação dos principais itens.</p>
-        <a href="https://chk.eduzz.com/2035014" class="grat-btn">Adquirir agora</a>
+        <p>Modelo pronto para imprimir, com os principais itens do dia a dia. Acaba o esquecimento na hora do mercado.</p>
+        <a href="https://chk.eduzz.com/2035014" class="grat-btn" target="_blank" rel="noopener">Baixar grátis →</a>
       </div>
 
-      <!-- Para Limpeza -->
+      <!-- Cuidado com as Roupas -->
       <div class="grat-card rv">
-        <span class="grat-badge">Gratuito</span>
+        <span class="grat-badge">Grátis</span>
         <div class="grat-ico">👔</div>
         <h3>Cuidado com as Roupas</h3>
-        <p>Cuide corretamente das roupas sabendo o significado dos desenhos nas etiquetas.</p>
-        <a href="https://chk.eduzz.com/2034983" class="grat-btn">Adquirir agora</a>
+        <p>Guia visual com o significado dos símbolos das etiquetas. Lave, seque e passe sem estragar suas peças.</p>
+        <a href="https://chk.eduzz.com/2034983" class="grat-btn" target="_blank" rel="noopener">Baixar grátis →</a>
       </div>
     </div>
+
+    <p class="grat-foot rv">Gostou desse conteúdo? Confira os <a href="#cur-online">cursos online</a> e o <a href="#cur-produtos">e-book Limpeza Descomplicada</a> para se aprofundar.</p>
   </section>
 
   <footer>
@@ -1081,7 +838,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 
 </html>
