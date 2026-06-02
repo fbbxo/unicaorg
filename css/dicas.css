@@ -44,38 +44,17 @@
 
     .dicas-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: 280px 280px;
-      gap: .8rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
       margin-bottom: 3rem;
     }
 
     .dica-card {
       position: relative;
       overflow: hidden;
-      border-radius: 3px;
-    }
-
-    .dica-card:nth-child(1) {
-      grid-column: span 5;
-      grid-row: span 2;
-    }
-
-    .dica-card:nth-child(2) {
-      grid-column: span 7;
-    }
-
-    .dica-card:nth-child(3) {
-      grid-column: span 3;
-    }
-
-    .dica-card:nth-child(4) {
-      grid-column: span 4;
-    }
-
-    .dica-card:nth-child(5) {
-      grid-column: span 5;
-      grid-row-start: 2;
+      border-radius: 6px;
+      aspect-ratio: 4 / 5;
+      background: var(--sage-lt);
     }
 
     .dica-inner {
@@ -83,14 +62,17 @@
       height: 100%;
     }
 
-    .dica-inner canvas {
+    .dica-inner canvas,
+    .dica-inner img {
       width: 100%;
       height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform .6s ease;
     }
 
-    .dica-card:hover .dica-inner canvas {
+    .dica-card:hover .dica-inner canvas,
+    .dica-card:hover .dica-inner img {
       transform: scale(1.06);
     }
 
@@ -150,7 +132,16 @@
     }
 
     .videos-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
       margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .videos-header .sec-title {
+      margin-bottom: 0;
     }
 
     .videos-grid {
@@ -195,7 +186,8 @@
       transition: background .3s;
     }
 
-    .video-card:hover .video-play {
+    .video-card:hover .video-play,
+    .dica-card:hover .video-play {
       background: rgba(59, 73, 63, .2);
     }
 
@@ -210,7 +202,8 @@
       transition: transform .3s;
     }
 
-    .video-card:hover .play-btn {
+    .video-card:hover .play-btn,
+    .dica-card:hover .play-btn {
       transform: scale(1.1);
     }
 
@@ -365,29 +358,8 @@
     /* ── RESPONSIVE ─────────────────────────── */
     @media (max-width: 960px) {
       .dicas-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 200px 200px 200px;
-      }
-
-      .dica-card:nth-child(1) {
-        grid-column: span 2;
-        grid-row: span 1;
-      }
-
-      .dica-card:nth-child(2) {
-        grid-column: span 2;
-      }
-
-      .dica-card:nth-child(3) {
-        grid-column: span 1;
-      }
-
-      .dica-card:nth-child(4) {
-        grid-column: span 1;
-      }
-
-      .dica-card:nth-child(5) {
-        grid-column: span 2;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
       }
 
       .videos-grid {
@@ -398,7 +370,8 @@
         grid-template-columns: 1fr;
       }
 
-      .dicas-intro {
+      .dicas-intro,
+      .videos-header {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -411,21 +384,16 @@
 
     @media (max-width: 560px) {
       .dicas-grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
       }
 
       .dica-card {
-        height: 220px;
+        border-radius: 0;
       }
 
-      .dica-card:nth-child(1),
-      .dica-card:nth-child(2),
-      .dica-card:nth-child(3),
-      .dica-card:nth-child(4),
-      .dica-card:nth-child(5) {
-        grid-column: span 1;
-        grid-row: span 1;
+      .dica-info {
+        display: none;
       }
     }
 
